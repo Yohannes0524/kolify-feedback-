@@ -1,0 +1,3332 @@
+<!DOCTYPE html>
+<html lang="am" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>በኮልፌ ቀራኒዮ ክፍለ ከተማ የግንባታ ፈቃድ እና ቁጥጥር ጽ/ቤት - የአስተያየት እና የጥያቄ ድህረገጽ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Abyssinica+SIL&display=swap');
+        
+        :root {
+            --primary-blue: #1a365d;
+            --secondary-blue: #2d4a8a;
+            --accent-gold: #d4af37;
+            --light-bg: #f8f9fa;
+            --dark-text: #2d3748;
+            --success-green: #38a169;
+            --warning-orange: #dd6b20;
+            --danger-red: #e53e3e;
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
+            --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --radius-lg: 12px;
+            --radius-md: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Abyssinica SIL', 'Noto Sans Ethiopic', 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+            color: var(--dark-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        /* Hidden sections */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Main Header - Removed fixed positioning */
+        .main-header {
+            background: white;
+            padding: 15px 20px;
+            box-shadow: var(--shadow-md);
+            z-index: 100;
+        }
+
+        .header-content {
+            text-align: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            flex-direction: column;
+        }
+
+        .logo {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            font-weight: bold;
+            border: 3px solid var(--accent-gold);
+            padding: 12px;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .office-name h1 {
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .slogan {
+            font-size: 1rem;
+            color: var(--secondary-blue);
+            font-weight: 600;
+            margin-top: 8px;
+            padding: 8px 12px;
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.1) 0%, rgba(212, 175, 55, 0.1) 100%);
+            border-radius: var(--radius-md);
+            display: inline-block;
+            width: 100%;
+            max-width: 600px;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .header-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+            justify-content: center;
+            width: 100%;
+            flex-direction: column;
+        }
+
+        .auth-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+            font-size: 0.95rem;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .auth-btn.admin-login {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .auth-btn.customer-view {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+        }
+
+        .auth-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 30px 15px;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.05) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border-radius: var(--radius-lg);
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .hero-title {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 12px;
+            line-height: 1.2;
+            padding: 0 10px;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: var(--secondary-blue);
+            margin-bottom: 15px;
+            line-height: 1.7;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 10px;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        /* Customer Feedback Page */
+        .customer-page {
+            padding: 15px;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .departments-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title h2 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 8px;
+            padding: 0 10px;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .departments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .department-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .department-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-gold);
+        }
+
+        .card-header {
+            padding: 20px;
+            background: linear-gradient(to right, #4a6fa5, var(--secondary-blue));
+            color: white;
+            text-align: center;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .card-header h3 {
+            font-size: 1.4rem;
+            margin-bottom: 6px;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .card-body {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-body h2 {
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            text-align: center;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .card-body p {
+            color: #4a5568;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            flex-grow: 1;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        /* Department Logo Container */
+        .department-logo-container {
+            text-align: center;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .department-logo-placeholder {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 10px;
+            background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #e2e8f0;
+            overflow: hidden;
+        }
+
+        .department-logo-placeholder i {
+            display: none;
+        }
+
+        .department-logo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .feedback-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-top: auto;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .feedback-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(26, 54, 93, 0.3);
+        }
+
+        .feedback-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .feedback-btn:hover::after {
+            left: 100%;
+        }
+
+        /* Feedback Modal */
+        .feedback-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+            padding: 15px;
+        }
+
+        .feedback-container {
+            background: white;
+            width: 100%;
+            max-width: 900px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feedback-header {
+            padding: 20px;
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-modal {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .close-modal:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .feedback-body {
+            padding: 20px;
+        }
+
+        .form-section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--secondary-blue);
+        }
+
+        .form-section h4 {
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            font-size: 0.95rem;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .form-group label.required::after {
+            content: " *";
+            color: var(--danger-red);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .form-input:focus {
+            border-color: var(--secondary-blue);
+            box-shadow: 0 0 0 3px rgba(45, 74, 138, 0.2);
+            outline: none;
+        }
+
+        .textarea-container {
+            position: relative;
+        }
+
+        .feedback-textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            resize: vertical;
+            transition: all 0.3s ease;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .feedback-textarea:focus {
+            border-color: var(--secondary-blue);
+            box-shadow: 0 0 0 3px rgba(45, 74, 138, 0.2);
+            outline: none;
+        }
+
+        /* File Upload */
+        .file-upload-container {
+            margin-top: 15px;
+        }
+
+        .file-upload-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .file-upload-box {
+            border: 2px dashed #e2e8f0;
+            border-radius: var(--radius-md);
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .file-upload-box:hover {
+            border-color: var(--secondary-blue);
+            background: #f8fafc;
+        }
+
+        .file-upload-box i {
+            font-size: 2.5rem;
+            color: var(--secondary-blue);
+            margin-bottom: 12px;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .file-info {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #718096;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .file-list {
+            margin-top: 15px;
+        }
+
+        .file-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 12px;
+            background: white;
+            border-radius: var(--radius-md);
+            margin-bottom: 8px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+        }
+
+        .file-icon {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .file-icon i {
+            color: var(--secondary-blue);
+        }
+
+        .remove-file {
+            background: none;
+            border: none;
+            color: var(--danger-red);
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        /* Voice Controls */
+        .voice-controls {
+            display: flex;
+            gap: 12px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .voice-btn {
+            padding: 10px 20px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            flex: 1;
+            min-width: 200px;
+            justify-content: center;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .voice-btn:hover {
+            border-color: var(--secondary-blue);
+            background: #f0f5ff;
+        }
+
+        .voice-btn.recording {
+            background: #fff5f5;
+            border-color: var(--danger-red);
+            color: var(--danger-red);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(229, 62, 62, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(229, 62, 62, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(229, 62, 62, 0); }
+        }
+
+        /* Rating Section */
+        .rating-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .rating-btn {
+            padding: 12px 15px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .rating-btn:hover {
+            border-color: var(--secondary-blue);
+            background: #f0f5ff;
+        }
+
+        .rating-btn.active {
+            background: var(--secondary-blue);
+            color: white;
+            border-color: var(--secondary-blue);
+        }
+
+        /* Woreda Selection */
+        .woreda-select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            background: white;
+            cursor: pointer;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .woreda-select:focus {
+            border-color: var(--secondary-blue);
+            box-shadow: 0 0 0 3px rgba(45, 74, 138, 0.2);
+            outline: none;
+        }
+
+        /* Submit Button */
+        .submit-feedback {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(to right, var(--success-green), #2f855a);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .submit-feedback:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(56, 161, 105, 0.3);
+        }
+
+        /* Success Modal */
+        .success-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1002;
+            padding: 15px;
+        }
+
+        .success-container {
+            background: white;
+            width: 100%;
+            max-width: 450px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            text-align: center;
+            padding: 30px 20px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .success-icon {
+            font-size: 3.5rem;
+            color: var(--success-green);
+            margin-bottom: 15px;
+        }
+
+        /* Admin Login Modal */
+        .login-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1003;
+            padding: 15px;
+        }
+
+        .login-container {
+            background: white;
+            width: 100%;
+            max-width: 400px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .login-header {
+            padding: 20px;
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            text-align: center;
+        }
+
+        .login-header h2 {
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .login-form {
+            padding: 25px;
+        }
+
+        .password-toggle-btn {
+            position: absolute;
+            right: 12px;
+            top: 35px;
+            background: none;
+            border: none;
+            color: #718096;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        /* Admin Dashboard */
+        .admin-page {
+            padding: 15px;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: none;
+            width: 100%;
+        }
+
+        .admin-header {
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .admin-title h2 {
+            font-size: 1.7rem;
+            margin-bottom: 8px;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .admin-controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 10px;
+            width: 100%;
+        }
+
+        .admin-btn {
+            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            min-width: 120px;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .admin-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Statistics Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            border-top: 4px solid var(--secondary-blue);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-card h3 {
+            font-size: 0.9rem;
+            color: #718096;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin: 8px 0;
+        }
+
+        /* Feedback List */
+        .feedback-list-container {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 35px;
+        }
+
+        .list-header {
+            padding: 15px 20px;
+            background: linear-gradient(to right, #f8fafc, #edf2f7);
+            border-bottom: 2px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .list-header h3 {
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .department-filter {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 8px;
+            width: 100%;
+        }
+
+        .filter-btn {
+            padding: 8px 12px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            text-align: center;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--secondary-blue);
+            background: #f0f5ff;
+        }
+
+        .filter-btn.active {
+            background: var(--secondary-blue);
+            color: white;
+            border-color: var(--secondary-blue);
+        }
+
+        .feedback-list {
+            max-height: 600px;
+            overflow-y: auto;
+            padding: 15px;
+        }
+
+        .feedback-item {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .feedback-item:hover {
+            border-color: var(--secondary-blue);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feedback-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .feedback-department {
+            background: var(--primary-blue);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .feedback-date {
+            color: #718096;
+            font-size: 0.85rem;
+        }
+
+        .feedback-rating {
+            display: flex;
+            gap: 4px;
+        }
+
+        .star {
+            color: #e2e8f0;
+            font-size: 1.1rem;
+        }
+
+        .star.filled {
+            color: #f6ad55;
+        }
+
+        .feedback-content {
+            margin-bottom: 20px;
+        }
+
+        .feedback-text {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            font-size: 1rem;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .feedback-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: var(--radius-md);
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .detail-label {
+            font-size: 0.8rem;
+            color: #718096;
+            margin-bottom: 4px;
+            font-weight: 600;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .detail-value {
+            font-weight: 500;
+            color: var(--dark-text);
+            word-break: break-word;
+            font-size: 0.95rem;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        /* Delete Button */
+        .delete-feedback-btn {
+            background: var(--danger-red);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            padding: 8px 15px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .delete-feedback-btn:hover {
+            background: #c53030;
+            transform: translateY(-2px);
+        }
+
+        .delete-feedback-btn:disabled {
+            background: #a0aec0;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Attachments */
+        .attachments-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .attachments-title {
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .attachments-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .attachment-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 15px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-size: 0.9rem;
+        }
+
+        .attachment-item:hover {
+            border-color: var(--secondary-blue);
+            background: #f0f5ff;
+            transform: translateY(-2px);
+        }
+
+        .attachment-icon {
+            font-size: 1.3rem;
+            color: var(--secondary-blue);
+        }
+
+        /* Admin Management */
+        .admin-management {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 25px;
+            box-shadow: var(--shadow-md);
+            margin-top: 30px;
+        }
+
+        .management-title {
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .management-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+
+        .management-form {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            border: 2px solid #e2e8f0;
+        }
+
+        /* Logo Management */
+        .logo-management {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 25px;
+            box-shadow: var(--shadow-md);
+            margin-top: 30px;
+        }
+
+        .logo-upload-container {
+            margin-bottom: 25px;
+        }
+
+        .logo-upload-box {
+            border: 2px dashed #e2e8f0;
+            border-radius: var(--radius-md);
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            background: white;
+            margin-bottom: 15px;
+        }
+
+        .logo-upload-box:hover {
+            border-color: var(--secondary-blue);
+            background: #f8fafc;
+        }
+
+        .logo-preview {
+            width: 120px;
+            height: 120px;
+            margin: 15px auto;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #e2e8f0;
+            background: #f8fafc;
+        }
+
+        .logo-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Confirmation Modal */
+        .confirmation-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1004;
+            padding: 15px;
+        }
+
+        .confirmation-container {
+            background: white;
+            width: 100%;
+            max-width: 450px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            text-align: center;
+            padding: 30px 20px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .confirmation-icon {
+            font-size: 3.5rem;
+            color: var(--danger-red);
+            margin-bottom: 15px;
+        }
+
+        /* Enhanced Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #0d2b5e 100%);
+            color: white;
+            padding: 40px 15px 25px;
+            margin-top: 50px;
+            border-top: 4px solid var(--accent-gold);
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-gold), #ffd700, var(--accent-gold));
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--accent-gold);
+            position: relative;
+            padding-bottom: 8px;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--accent-gold);
+        }
+
+        .footer-section p {
+            margin-bottom: 8px;
+            line-height: 1.7;
+            font-size: 0.9rem;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .footer-section i {
+            color: var(--accent-gold);
+            margin-right: 8px;
+            width: 18px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+        }
+
+        .social-link:hover {
+            background: var(--accent-gold);
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            padding: 12px 20px;
+            background: var(--success-green);
+            color: white;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            z-index: 10000;
+            animation: slideInRight 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            max-width: 350px;
+            font-size: 0.9rem;
+            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .notification.error {
+            background: var(--danger-red);
+        }
+
+        .notification.info {
+            background: var(--secondary-blue);
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideOutRight {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+
+        /* Tablet Styles */
+        @media (min-width: 768px) {
+            .main-header {
+                padding: 18px 30px;
+            }
+            
+            .logo-container {
+                flex-direction: row;
+                gap: 15px;
+            }
+            
+            .logo {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+            }
+            
+            .office-name h1 {
+                font-size: 1.7rem;
+            }
+            
+            .slogan {
+                font-size: 1.1rem;
+                padding: 10px 20px;
+            }
+            
+            .auth-buttons {
+                flex-direction: row;
+                gap: 15px;
+            }
+            
+            .auth-btn {
+                width: auto;
+                max-width: none;
+                padding: 12px 25px;
+            }
+            
+            .hero-section {
+                padding: 35px 25px;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .customer-page {
+                padding: 20px;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .departments-grid {
+                gap: 25px;
+            }
+            
+            .admin-controls {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            }
+            
+            .admin-btn {
+                padding: 12px 20px;
+                font-size: 0.95rem;
+            }
+            
+            .department-filter {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .footer {
+                padding: 45px 25px 30px;
+            }
+        }
+
+        /* Laptop Styles */
+        @media (min-width: 1024px) {
+            .main-header {
+                padding: 20px 40px;
+            }
+            
+            .logo {
+                width: 90px;
+                height: 90px;
+            }
+            
+            .office-name h1 {
+                font-size: 1.9rem;
+            }
+            
+            .slogan {
+                font-size: 1.2rem;
+            }
+            
+            .auth-btn {
+                padding: 12px 30px;
+            }
+            
+            .hero-section {
+                padding: 40px 30px;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .customer-page {
+                padding: 25px;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .departments-grid {
+                gap: 30px;
+            }
+            
+            .admin-controls {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 12px;
+            }
+            
+            .admin-btn {
+                padding: 12px 25px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 25px;
+            }
+            
+            .department-filter {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+            }
+            
+            .footer {
+                padding: 50px 40px 35px;
+            }
+            
+            .footer-content {
+                gap: 40px;
+            }
+        }
+
+        /* Mobile-specific adjustments */
+        @media (max-width: 480px) {
+            .logo {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            .office-name h1 {
+                font-size: 1.2rem;
+            }
+            
+            .slogan {
+                font-size: 0.9rem;
+                padding: 6px 10px;
+            }
+            
+            .hero-title {
+                font-size: 1.6rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.95rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+            
+            .departments-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .card-header h3 {
+                font-size: 1.3rem;
+            }
+            
+            .department-logo-placeholder {
+                width: 90px;
+                height: 90px;
+            }
+            
+            .voice-btn {
+                min-width: 100%;
+            }
+            
+            .rating-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .admin-header {
+                padding: 15px;
+            }
+            
+            .admin-title h2 {
+                font-size: 1.4rem;
+            }
+            
+            .admin-controls {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .stat-card {
+                padding: 15px;
+            }
+            
+            .stat-value {
+                font-size: 1.8rem;
+            }
+            
+            .feedback-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .attachments-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary-blue);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-blue);
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Header - Not fixed when scrolling -->
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-container">
+                <div class="logo" id="mainLogo">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="office-name">
+                    <h1>በኮልፌ ቀራኒዮ ክፍለ ከተማ የግንባታ ፈቃድ እና ቁጥጥር ጽ/ቤት</h1>
+                    <div class="slogan">የደንበኞቻችን አስተያየት፣ ቅሬታ እና ጥያቄ ማቅረቢያ ድህረ-ገጽ</div>
+                    <div class="slogan">እኛ ከእርስዎ ሃሳብ እና አስተያየት ወስደን ፤ አስተካክለን ለማገልገል ዝግጁ ነን!!!</div>
+                </div>
+            </div>
+            
+            <div class="header-controls">
+                <div class="auth-buttons">
+                    <button class="auth-btn customer-view hidden" id="showCustomerView">
+                        <i class="fas fa-users"></i> ወደ ደንበኞቻችን ገጽ ይመለሱ
+                    </button>
+                    <button class="auth-btn admin-login" id="showAdminLogin">
+                        <i class="fas fa-user-shield"></i> ወደ አስተዳዳሪዎች ገጽ ይግቡ
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Customer Feedback Page -->
+    <main id="customerPage" class="customer-page">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="hero-title">እንኳን ወደ አስተያየት መስጫ ድህረ ገጽ በደህና መጡ!!!</h1>
+            <p class="hero-subtitle">ስለ አገልግሎታችን አስተያየት፣ ቅሬታዎች እና ጥያቄዎችዎን ለተሻለ አገልግሎት እንድንበረት ያጋሩን።</p>
+            <p class="hero-subtitle">የእርስዎ አስተያየት አገልግሎታችንን ለማሻሻል እና ማህበረሰባችንን በተሻለ ሁኔታ ለመገልገል ይረዳናል።</p>
+            <p class="hero-subtitle">እባከዎት በትክክል አስተያየት፣ ቅሬት እና ጥያቄ የሚያቀርቡበትን ቡድን በትትክክል ይምረጡ።</p>
+        </section>
+
+        <!-- Departments Section -->
+        <section class="departments-section">
+            <div class="section-title">
+                <h2>ለየትኛው የጽ/ቤት የስራ ክፍል ስለ አገልግሎቱ አስተያየት፣ ቅሬታ እና ጥያቄ ሊያቀርቡ ፈለጉ?</h2>
+            </div>
+
+            <div class="departments-grid">
+                <!-- Deputy Office Head Department -->
+                <div class="department-card" data-dept="deputy-office">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3>የጽ/ቤት ኃላፊ</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="department-logo-container">
+                            <div class="department-logo-placeholder" id="logo-deputy-office">
+                                <!-- Logo will be added by admin -->
+                            </div>
+                        </div>
+                        <h2>ወ/ሪ ሰብለ ፉርጋሳ</h2>
+                        <p>ለጽ/ቤት ኃላፊ በቀጥታ አስተያየት፣ ቅሬታ ወይም ጥያቄ ያቀርቡ። ይህ ክፍል ለሚከተሉት የስራ ክፍሎች አጠቃላይ አስተዳደር እና ቁጥጥርን ያካትታል።</p>
+                        <button class="feedback-btn">አስተያየትዎን፣ ቅሬታዎን ወይም ጥያቄዎን እዚሁ ተጭነው ይስጡ</button>
+                    </div>
+                </div>
+
+                <!-- Construction Permit Department -->
+                <div class="department-card" data-dept="construction-permit">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                        <h3>የግንባታ ፈቃድ ቡድን</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="department-logo-container">
+                            <div class="department-logo-placeholder" id="logo-construction-permit">
+                                <!-- Logo will be added by admin -->
+                            </div>
+                        </div>
+                        <h2>አቶ ሐብታሙ ለሜሳ</h2>
+                        <p>ስለ አዲስ ግንባታ ፈቃድ ሂደቶች ፣ ስለ እድሳት፣ ጊዜያዊ ግንባት፣ ፕላን ስምምነት እንዲሁም ልዩ ልዩ የግንባታ ፈቃድ ሂደቶች እና ማመልከቻዎች አስተያየት፣ ቅሬታ ወይም ጥያቄ ያስገቡ።</p>
+                        <button class="feedback-btn">አስተያየትዎን፣ ቅሬታዎን ወይም ጥያቄዎን እዚሁ ተጭነው ይስጡ</button>
+                    </div>
+                </div>
+
+                <!-- Construction Control Department -->
+                <div class="department-card" data-dept="construction-control">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        <h3>የግንባታ ክትትል እና ቁጥጥር ቡድን</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="department-logo-container">
+                            <div class="department-logo-placeholder" id="logo-construction-control">
+                                <!-- Logo will be added by admin -->
+                            </div>
+                        </div>
+                        <h2>አቶ ብሩክ ውብሸት</h2>
+                        <p>ስለ ግንባታ ክትትል እና ቁጥጥር ፣ ሳይት ሪፖርት፣ የግንባታ ማስጀመሪያ እና የህንጻ ደህንነት ደንቦች አስተያየት ይስጡ።</p>
+                        <button class="feedback-btn">አስተያየትዎን፣ ቅሬታዎን ወይም ጥያቄዎን እዚሁ ተጭነው ይስጡ</button>
+                    </div>
+                </div>
+
+                <!-- Building Inspiration Department -->
+                <div class="department-card" data-dept="building-inspiration">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>የህንጻ መጠቀሚያ ፈቃድ እና ኢንስፔክሺን ቡድን</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="department-logo-container">
+                            <div class="department-logo-placeholder" id="logo-building-inspiration">
+                                <!-- Logo will be added by admin -->
+                            </div>
+                        </div>
+                        <h2>አቶ ቦጋለ ታደሰ</h2>
+                        <p>ለህንጽዎ መጠቀሚያ ፈቃድ፣ የአገልግሎት ለውጥ በተመለከተ አስተያይተዎን ይስጡ</p>
+                        <button class="feedback-btn">አስተያየትዎን፣ ቅሬታዎን ወይም ጥያቄዎን እዚሁ ተጭነው ይስጡ</button>
+                    </div>
+                </div>
+
+                <!-- Outdoor Advertisement Department -->
+                <div class="department-card" data-dept="outdoor-advertisement">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-ad"></i>
+                        </div>
+                        <h3>የውጭ ማስታወቂያ ፈቃድ አሰጣጥ እና ቁጥጥር ቡድን</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="department-logo-container">
+                            <div class="department-logo-placeholder" id="logo-outdoor-advertisement">
+                                <!-- Logo will be added by admin -->
+                            </div>
+                        </div>
+                        <h2>አቶ ዩሐንስ ሙሉዩ</h2>
+                        <p>ስለ ውጭ ማስታወቂያ ፈቃዶች እና ቁጥጥር፣ የውጭ ማስታወቂያ የሚሆን ቦታ መረጣ ፣ ደንቦች እና መመሪያዎች አስተያየት።</p>
+                        <button class="feedback-btn">አስተያየትዎን፣ ቅሬታዎን ወይም ጥያቄዎን እዚሁ ተጭነው ይስጡ</button>
+                    </div>
+                </div>
+
+                <!-- Documentation Department -->
+                <div class="department-card" data-dept="documentation">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-archive"></i>
+                        </div>
+                        <h3>መረጃ እና ዶክመንቴሺን</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="department-logo-container">
+                            <div class="department-logo-placeholder" id="logo-documentation">
+                                <!-- Logo will be added by admin -->
+                            </div>
+                        </div>
+                        <h2>አቶ አብዱልፈታ ሰይድ</h2>
+                        <p>ስለ የሰነድ ሂደት ፣ ማህደረ ሰነድ እና የመረጃ አሰጣጥ አገልግሎቶች አስተያየት ይስጡ።</p>
+                        <button class="feedback-btn">አስተያየትዎን፣ ቅሬታዎን ወይም ጥያቄዎን እዚሁ ተጭነው ይስጡ</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Admin Dashboard -->
+    <div id="adminPage" class="admin-page">
+        <div class="admin-header">
+            <div class="admin-title">
+                <h2>የአስተዳዳሪ ዳሽቦርድ</h2>
+                <div style="margin-top: 10px; font-size: 0.85rem; opacity: 0.9;">
+                    አስተዳዳሪዎች: <span id="loggedInAdmin">-</span>
+                    <span id="adminRoleIndicator" style="margin-left: 10px; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem;"></span>
+                </div>
+            </div>
+            
+            <div class="admin-controls">
+                <button class="admin-btn" id="refreshDashboard">
+                    <i class="fas fa-sync-alt"></i> አድስ
+                </button>
+                <button class="admin-btn" id="manageAdminsBtn">
+                    <i class="fas fa-user-shield"></i> አስተዳዳሪዎችን አስተዳደር
+                </button>
+                <button class="admin-btn" id="manageLogosBtn">
+                    <i class="fas fa-image"></i> ሎጎዎችን አስተዳደር
+                </button>
+                <button class="admin-btn" id="exportDataBtn">
+                    <i class="fas fa-download"></i> መረጃዎን ይላኩ
+                </button>
+                <button class="admin-btn" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> ውጣ
+                </button>
+            </div>
+        </div>
+
+        <!-- Statistics -->
+        <div class="stats-grid" id="statsGrid">
+            <!-- Stats will be populated by JavaScript -->
+        </div>
+
+        <!-- Feedback List -->
+        <div class="feedback-list-container">
+            <div class="list-header">
+                <h3>የደንበኞች አስተያየቶች</h3>
+                <div class="department-filter">
+                    <button class="filter-btn active" data-department="all">ሁሉም</button>
+                    <button class="filter-btn" data-department="deputy-office">የጽ/ቤት ኃላፊ</button>
+                    <button class="filter-btn" data-department="construction-permit">የግንባታ ፈቃድ ቡድን</button>
+                    <button class="filter-btn" data-department="construction-control">የግንባታ ክትትል እና ቁጥጥር ቡድን</button>
+                    <button class="filter-btn" data-department="building-inspiration">የህንጻ መጠቀሚያ ፈቃድ እና ኢንስፔክሽን ቡድን</button>
+                    <button class="filter-btn" data-department="outdoor-advertisement">የውጭ ማስታወቂያ ፈቃድ እና ቁጥጥር ቡድን</button>
+                    <button class="filter-btn" data-department="documentation">መረጃ እና ዶክመንቴሺን ቡድን</button>
+                </div>
+            </div>
+            <div class="feedback-list" id="adminFeedbackList">
+                <!-- Feedback items will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Admin Management Section -->
+        <div class="admin-management" id="adminManagementSection" style="display: none;">
+            <h3 class="management-title">የአስተዳዳሪ አስተዳደር</h3>
+            
+            <div class="management-grid">
+                <div class="management-form">
+                    <h4><i class="fas fa-user-plus"></i> አዲስ አስተዳዳሪ ይጨምሩ</h4>
+                    <form id="addAdminForm">
+                        <div class="form-group">
+                            <label for="newUsername" class="required">የተጠቃሚ ስም</label>
+                            <input type="text" id="newUsername" class="form-input" placeholder="የተጠቃሚ ስም ያስገቡ" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="newPassword" class="required">የይለፍ ቃል</label>
+                            <input type="password" id="newPassword" class="form-input" placeholder="የይለፍ ቃል ያስገቡ" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword" class="required">የይለፍ ቃል አረጋግጥ</label>
+                            <input type="password" id="confirmPassword" class="form-input" placeholder="የይለፍ ቃል ያረጋግጡ" required>
+                        </div>
+                        <button type="submit" class="submit-feedback">
+                            <i class="fas fa-user-plus"></i>
+                            አስተዳዳሪ ይጨምሩ
+                        </button>
+                    </form>
+                </div>
+
+                <div class="management-form">
+                    <h4><i class="fas fa-key"></i> የይለፍ ቃል ይቀይሩ</h4>
+                    <form id="changePasswordForm">
+                        <div class="form-group">
+                            <label for="currentPassword" class="required">የአሁኑ የይለፍ ቃል</label>
+                            <input type="password" id="currentPassword" class="form-input" placeholder="የአሁኑ የይለፍ ቃል ያስገቡ" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="newUserPassword" class="required">አዲስ የይለፍ ቃል</label>
+                            <input type="password" id="newUserPassword" class="form-input" placeholder="አዲስ የይለፍ ቃል ያስገቡ" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmNewPassword" class="required">አዲሱን የይለፍ ቃል ያረጋግጡ</label>
+                            <input type="password" id="confirmNewPassword" class="form-input" placeholder="አዲሱን የይለፍ ቃል ያረጋግጡ" required>
+                        </div>
+                        <button type="submit" class="submit-feedback">
+                            <i class="fas fa-sync-alt"></i>
+                            የይለፍ ቃልዎን ይቀይሩ
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <h4><i class="fas fa-users"></i> የአስተዳዳሪዎች ዝርዝር</h4>
+                <div style="background: #f8fafc; border-radius: var(--radius-md); padding: 15px; margin-top: 15px;">
+                    <div id="adminList">
+                        <!-- Admin list will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logo Management Section -->
+        <div class="logo-management" id="logoManagementSection" style="display: none;">
+            <h3 class="management-title">የስራ ክፍል እና ሎጎዎችን አስተዳደር</h3>
+            
+            <div class="management-grid">
+                <!-- Deputy Office Logo -->
+                <div class="logo-upload-container">
+                    <h4><i class="fas fa-user-tie"></i> የጽ/ቤት ኃላፊ ሎጎ</h4>
+                    <div class="logo-upload-box" id="logoUploadDeputyOffice">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>ሎጎ ፋይል ይጎትቱ ወይም ለመጫን ይጫኑ</p>
+                        <input type="file" class="file-input" id="logoInputDeputyOffice" accept="image/*">
+                        <button type="button" class="feedback-btn" style="margin-top: 10px; width: auto; padding: 8px 20px;" onclick="document.getElementById('logoInputDeputyOffice').click()">
+                            <i class="fas fa-plus"></i> ሎጎ ይምረጡ
+                        </button>
+                    </div>
+                    <div class="logo-preview" id="logoPreviewDeputyOffice">
+                        <!-- Logo preview will appear here -->
+                    </div>
+                    <div class="file-info">
+                        <p>የሚደገፉ ፎርማቶች: JPG, PNG, SVG, GIF</p>
+                        <p>ማክሰኞ: ሎጎው ከአስተያየት ቁልፍ በታች ይታያል</p>
+                    </div>
+                </div>
+
+                <!-- Construction Permit Logo -->
+                <div class="logo-upload-container">
+                    <h4><i class="fas fa-file-contract"></i> የግንባታ ፈቃድ ቡድን ሎጎ</h4>
+                    <div class="logo-upload-box" id="logoUploadConstructionPermit">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>ሎጎ ፋይል ይጎትቱ ወይም ለመጫን ይጫኑ</p>
+                        <input type="file" class="file-input" id="logoInputConstructionPermit" accept="image/*">
+                        <button type="button" class="feedback-btn" style="margin-top: 10px; width: auto; padding: 8px 20px;" onclick="document.getElementById('logoInputConstructionPermit').click()">
+                            <i class="fas fa-plus"></i> ሎጎ ይምረጡ
+                        </button>
+                    </div>
+                    <div class="logo-preview" id="logoPreviewConstructionPermit">
+                        <!-- Logo preview will appear here -->
+                    </div>
+                </div>
+
+                <!-- Construction Control Logo -->
+                <div class="logo-upload-container">
+                    <h4><i class="fas fa-hard-hat"></i> የግንባታ ክትትል እና ቁጥጥር ቡድን ሎጎ</h4>
+                    <div class="logo-upload-box" id="logoUploadConstructionControl">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>ሎጎ ፋይል ይጎትቱ ወይም ለመጫን ይጫኑ</p>
+                        <input type="file" class="file-input" id="logoInputConstructionControl" accept="image/*">
+                        <button type="button" class="feedback-btn" style="margin-top: 10px; width: auto; padding: 8px 20px;" onclick="document.getElementById('logoInputConstructionControl').click()">
+                            <i class="fas fa-plus"></i> ሎጎ ይምረጡ
+                        </button>
+                    </div>
+                    <div class="logo-preview" id="logoPreviewConstructionControl">
+                        <!-- Logo preview will appear here -->
+                    </div>
+                </div>
+
+                <!-- Building Inspiration Logo -->
+                <div class="logo-upload-container">
+                    <h4><i class="fas fa-lightbulb"></i> የህንጻ መጠቀሚያ እና ኢንስፔክሽን ቡድን ሎጎ</h4>
+                    <div class="logo-upload-box" id="logoUploadBuildingInspiration">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>ሎጎ ፋይል ይጎትቱ ወይም ለመጫን ይጫኑ</p>
+                        <input type="file" class="file-input" id="logoInputBuildingInspiration" accept="image/*">
+                        <button type="button" class="feedback-btn" style="margin-top: 10px; width: auto; padding: 8px 20px;" onclick="document.getElementById('logoInputBuildingInspiration').click()">
+                            <i class="fas fa-plus"></i> ሎጎ ይምረጡ
+                        </button>
+                    </div>
+                    <div class="logo-preview" id="logoPreviewBuildingInspiration">
+                        <!-- Logo preview will appear here -->
+                    </div>
+                </div>
+
+                <!-- Outdoor Advertisement Logo -->
+                <div class="logo-upload-container">
+                    <h4><i class="fas fa-ad"></i> የውጭ ማስታወቂያ ፈቃድ እና ቁጥጥር ቡድን ሎጎ</h4>
+                    <div class="logo-upload-box" id="logoUploadOutdoorAdvertisement">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>ሎጎ ፋይል ይጎትቱ ወይም ለመጫን ይጫኑ</p>
+                        <input type="file" class="file-input" id="logoInputOutdoorAdvertisement" accept="image/*">
+                        <button type="button" class="feedback-btn" style="margin-top: 10px; width: auto; padding: 8px 20px;" onclick="document.getElementById('logoInputOutdoorAdvertisement').click()">
+                            <i class="fas fa-plus"></i> ሎጎ ይምረጡ
+                        </button>
+                    </div>
+                    <div class="logo-preview" id="logoPreviewOutdoorAdvertisement">
+                        <!-- Logo preview will appear here -->
+                    </div>
+                </div>
+
+                <!-- Documentation Logo -->
+                <div class="logo-upload-container">
+                    <h4><i class="fas fa-archive"></i> መረጃ እና ዶክመንቴሺን ቡድን ሎጎ</h4>
+                    <div class="logo-upload-box" id="logoUploadDocumentation">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>ሎጎ ፋይል ይጎትቱ ወይም ለመጫን ይጫኑ</p>
+                        <input type="file" class="file-input" id="logoInputDocumentation" accept="image/*">
+                        <button type="button" class="feedback-btn" style="margin-top: 10px; width: auto; padding: 8px 20px;" onclick="document.getElementById('logoInputDocumentation').click()">
+                            <i class="fas fa-plus"></i> ሎጎ ይምረጡ
+                        </button>
+                    </div>
+                    <div class="logo-preview" id="logoPreviewDocumentation">
+                        <!-- Logo preview will appear here -->
+                    </div>
+                </div>
+            </div>
+            
+            <button class="submit-feedback" style="margin-top: 25px;" onclick="saveAllLogos()">
+                <i class="fas fa-save"></i> ሁሉንም ሎጎዎች አስቀምጥ
+            </button>
+        </div>
+    </div>
+
+    <!-- Feedback Modal -->
+    <div class="feedback-modal" id="feedbackModal">
+        <div class="feedback-container">
+            <div class="feedback-header">
+                <div>
+                    <h3 id="modalTitle">የአስተያየት፣ ቅሬታ እና ጥያቄ መሙያ ቅጽ</h3>
+                </div>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="feedback-body">
+                <form id="feedbackForm">
+                    <!-- Personal Information -->
+                    <div class="form-section">
+                        <h4><i class="fas fa-user"></i> የግል መረጃ</h4>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="fullName" class="required">ሙሉ ስም</label>
+                                <input type="text" class="form-input" id="fullName" placeholder="ሙሉ ስምዎን ያስገቡ" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone" class="required">ስልክ ቁጥር</label>
+                                <input type="tel" class="form-input" id="phone" placeholder="0912345678" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">ኢሜይል (አማራጭ)</label>
+                                <input type="email" class="form-input" id="email" placeholder="example@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="woreda" class="required">ወረዳ</label>
+                                <select class="woreda-select" id="woreda" required>
+                                    <option value=""> እባከዎን ወረዳዎን ይምረጡ </option>
+                                    <option value="woreda-1">ወረዳ 01</option>
+                                    <option value="woreda-2">ወረዳ 02</option>
+                                    <option value="woreda-3">ወረዳ 03</option>
+                                    <option value="woreda-4">ወረዳ 04</option>
+                                    <option value="woreda-5">ወረዳ 05</option>
+                                    <option value="woreda-6">ወረዳ 06</option>
+                                    <option value="woreda-7">ወረዳ 07</option>
+                                    <option value="woreda-8">ወረዳ 08</option>
+                                    <option value="woreda-9">ወረዳ 09</option>
+                                    <option value="woreda-10">ወረዳ 10</option>
+                                    <option value="woreda-11">ወረዳ 11</option>
+                                    <option value="other">ሌላ</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feedback Content -->
+                    <div class="form-section">
+                        <h4><i class="fas fa-comment-alt"></i> አስተያየትዎ <span class="required">*</span></h4>
+                        <div class="textarea-container">
+                            <textarea class="feedback-textarea" id="feedbackText" 
+                                      placeholder="አስተያየትዎን እዚህ ይፃፉ..." 
+                                      required></textarea>
+                        </div>
+                        <div class="voice-controls">
+                            <button type="button" class="voice-btn" id="voiceAmharicBtn">
+                                <i class="fas fa-microphone"></i>
+                                በአማርኛ ሪኮርድ በማድረግ ይላኩ
+                            </button>
+                            <button type="button" class="voice-btn" id="stopRecordingBtn" style="display: none;">
+                                <i class="fas fa-stop-circle"></i>
+                                መቅዳት አቁሙ
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Document Upload -->
+                    <div class="form-section">
+                        <h4><i class="fas fa-paperclip"></i> ተጨማሪ ሰነዶችን ማያያዝ ከፈለጉ እዚህ ያስቀምጡ (አማራጭ)</h4>
+                        <div class="file-upload-container">
+                            <div class="file-upload-box" id="fileUploadBox">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>ፋይሎችን እዚህ ይጎትቱ ወይም ለመጫን ይጫኑ</p>
+                                <input type="file" class="file-input" id="fileInput" 
+                                       accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.mp3,.wav,.m4a" multiple>
+                                <button type="button" class="feedback-btn" style="margin-top: 10px; width: auto; padding: 8px 20px;" onclick="document.getElementById('fileInput').click()">
+                                    <i class="fas fa-plus"></i> ፋይሎችን ይምረጡ
+                                </button>
+                            </div>
+                            <div class="file-info">
+                                <p>የሚደገፉ ፎርማቶች: PDF፣ ምስሎች (JPG፣ PNG)፣ የWord ሰነዶች፣ ድምጽ (MP3፣ WAV፣ M4A)</p>
+                            </div>
+                            <div class="file-list" id="fileList">
+                                <!-- Files will be listed here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rating -->
+                    <div class="form-section">
+                        <h4><i class="fas fa-star"></i> ከዚህ ቀደም የሰጠንዎት የአገልግሉት ደረጃ በምን ይፈርጁታል <span class="required">*</span></h4>
+                        <div class="rating-section">
+                            <button type="button" class="rating-btn" data-rating="1">ደካማ</button>
+                            <button type="button" class="rating-btn" data-rating="2">አማካኝ</button>
+                            <button type="button" class="rating-btn active" data-rating="3">ጥሩ</button>
+                            <button type="button" class="rating-btn" data-rating="4">በጣም ጥሩ</button>
+                            <button type="button" class="rating-btn" data-rating="5">አስደናቂ</button>
+                        </div>
+                        <input type="hidden" id="selectedRating" value="3" required>
+                    </div>
+
+                    <!-- Additional Information -->
+                    <div class="form-section">
+                        <h4><i class="fas fa-info-circle"></i> ተጨማሪ መረጃ</h4>
+                        <div class="form-group">
+                            <label for="additionalInfo">እባክዎትን ሌላ አስተያየቶች ወይም ምክሮች ካልዎት ያጋሩን?</label>
+                            <textarea class="feedback-textarea" id="additionalInfo" 
+                                      placeholder="ለመጋራት የሚፈልጉት ሌላ መረጃ..."></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-feedback">
+                        <i class="fas fa-paper-plane"></i>
+                        አስተያየትዎን፣ ቅሬታዎን ወይም ጥያቂዎን ይላኩ!!!
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="success-modal" id="successModal">
+        <div class="success-container">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>እናመሰግናለን!</h2>
+            <p>አስተያየትዎ በተሳካ ሁኔታ ቀርቧል ከልብ እናመሰግነዎታለን !!!</p>
+            <p>በቅንንነት ወስደን አገልግሎታችንን ለማሻሻል እንጠቀምበታለን።</p>
+            <button class="feedback-btn" onclick="closeSuccessModal()" style="margin-top: 20px;">
+                ዝጋ
+            </button>
+        </div>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-container">
+            <div class="login-header">
+                <h2>አስተዳደር መግቢያ</h2>
+            </div>
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="loginUsername">የተጠቃሚ ስም</label>
+                    <input type="text" id="loginUsername" class="form-input" placeholder="የተጠቃሚ ስም ያስገቡ" required>
+                </div>
+                <div class="form-group" style="position: relative;">
+                    <label for="loginPassword">የይለፍ ቃል</label>
+                    <input type="password" id="loginPassword" class="form-input" placeholder="የይለፍ ቃል ያስገቡ" required>
+                    <button type="button" class="password-toggle-btn" id="loginPasswordToggle">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <button type="submit" class="submit-feedback" style="margin-top: 10px;">
+                    <i class="fas fa-sign-in-alt"></i> ይግቡ
+                </button>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #e2e8f0;">
+                    <p style="color: #0b62e5; font-size: 0.85rem; text-align: center;">
+                        <strong>ነባር አስተዳደር ምስክርነት:</strong><br>
+                        የተጠቃሚ ስም: <code>yohannesmk</code><br>
+                        የይለፍ ቃል: <code>123</code>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal for Deletion -->
+    <div class="confirmation-modal" id="confirmationModal">
+        <div class="confirmation-container">
+            <div class="confirmation-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h2>አስተያየት ለመሰረዝ እርግጠኛ ነዎት?</h2>
+            <p id="confirmationMessage">ይህን አስተያየት ለመሰረዝ እርግጠኛ ነዎት? ይህ ተግባር መቀለብ የለበትም።</p>
+            <div style="display: flex; gap: 12px; margin-top: 20px; flex-direction: column;">
+                <button class="feedback-btn" id="confirmDeleteBtn" style="background: var(--danger-red);">
+                    <i class="fas fa-trash"></i> አዎ፣ ሰርዝ
+                </button>
+                <button class="feedback-btn" id="cancelDeleteBtn" style="background: var(--secondary-blue);">
+                    <i class="fas fa-times"></i> አይ፣ ዝጋ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>በኮልፌ ቀራኒዮ ክፍለ ከተማ የግንባታ ፈቃድ እና ቁጥጥር ጽ/ቤት</h3>
+                <p><i class="fas fa-map-marker-alt"></i> አድራሻ: በኮልፌ ቀራኒዮ ክፍለ ከተማ ህንጻ, የመጀመሪያ ፎቅ በስተቀኝ በኩል</p>
+                <p><i class="fas fa-phone"></i> ስልክ: +251 923 562 131</p>
+                <p><i class="fas fa-envelope"></i> ኢሜይል: kolfi.construction@ethiomail.com</p>
+                <p><i class="fas fa-clock"></i> የአገልግሎት ቀን: ሰኞ-ቅዳሜ: 2:30 - 11:30 (@local time)</p>
+                <p><i class="fas fa-user-tie"></i> የጽ/ቤት ኃላፊ: ወ/ሮ ሰብለ ፉርጋሳ</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>ለተጨማሪ መረጃ</h3>
+                <p><i class="fab fa-telegram"></i> ቴሌግራም: @Kolfyconstraction</p>
+                <p><i class="fas fa-globe"></i> ድረ-ገጽ: www.kolficonstruction.gov.et</p>
+                <p><i class="fas fa-map"></i> መቀመጪያ: ኮልፌ ቀራኒዮ ክፍለ ከተማ አስተዳድር ሕንፃ</p>
+                <p><i class="fas fa-file-alt"></i> የአገልግሎት ዓይነቶች: የግንባታ ፈቃድ፣ የቁጥጥር አገልግሎት፣ የማስታወቂያ ፈቃድ</p>
+                <div class="social-links">
+                    <a href="https://t.me/Kolfyconstraction" target="_blank" class="social-link">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>አገልግሎት ሰጪ ክፍሎች</h3>
+                <p><i class="fas fa-user-tie"></i> የጽ/ቤት ኃላፊ</p>
+                <p><i class="fas fa-file-contract"></i> የግንባታ ፈቃድ አሰጣጥ ቡድን</p>
+                <p><i class="fas fa-hard-hat"></i> የግንባታ ክትትል እና ቁጥጥር ቡድን</p>
+                <p><i class="fas fa-lightbulb"></i> የህንጻ መጠቀሚያ እና ኢንስፔክሺን ቡድን</p>
+                <p><i class="fas fa-ad"></i> የውጭ ማስታወቂያ ፈቃድ እና ቁጥጥር ቡድን</p>
+                <p><i class="fas fa-archive"></i> መረጃ እና ዶክመንቴሺን ቡድን</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 25px; padding-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+            <p>© 2023 በኮልፌ ቀራኒዮ ክፍለ ከተማ የግንባታ ፈቃድ እና ቁጥጥር ጽ/ቤት. ሁሉም መብቶች የተጠበቁ ናቸው።</p>
+            <p style="font-size: 0.85rem; opacity: 0.8;">የደንበኛ አስተያየት ፣ ቅሬታ እና ጥያቄ ማቅረቢያ ድረ-ገጽ</p>
+            <p style="font-size: 0.85rem; opacity: 0.8;"> <i>እኛ ልናገለግልዎት ሁሌም አለን!!!</i></p>
+            <p style="font-size: 0.85rem; opacity: 0.8;"> <strong><i>በአቶ ዩሐንስ ሙሉዩ የበለፀገ</i></strong></p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript remains exactly the same as in the original file
+        // The script is 100% compatible with the font changes
+        // ========== ኢኒሻላይዜሽን ==========
+        const DEFAULT_ADMIN = {
+            username: "yohannesmk",
+            password: "123",
+            isFirstAdmin: true,
+            fullName: "ዮሃንስ ኤም.ኬ"
+        };
+
+        // የስራ ክፍል ስሞች
+        const departmentNames = {
+            'deputy-office': 'የጽ/ቤት ኃላፊ',
+            'construction-permit': 'የግንባታ ፈቃድ አሰጣጥ ቡድን',
+            'construction-control': 'የግንባታ ክትትል እና ቁጥጥር ቡድን',
+            'building-inspiration': 'የህንጻ መጠቀሚያ እና ኢኒስፔክሺን ቡድን',
+            'outdoor-advertisement': 'የውጭ ማስታወቂያ ፈቃድ እና ቁጥጥር ቡድን',
+            'documentation': 'መረጃ እና ዶክመንቴሺን ቡድን'
+        };
+
+        // ለማጥፋት መረጃ ማከማቻ
+        let pendingDeletion = {
+            feedbackId: null,
+            department: null,
+            feedbackIndex: null
+        };
+
+        // localStorage ኢኒሻላይዝ ማድረግ
+        function initializeStorage() {
+            // አስተያየት ማከማቻ
+            if (!localStorage.getItem('feedback')) {
+                localStorage.setItem('feedback', JSON.stringify({
+                    'deputy-office': [],
+                    'construction-permit': [],
+                    'construction-control': [],
+                    'building-inspiration': [],
+                    'outdoor-advertisement': [],
+                    'documentation': []
+                }));
+            }
+            
+            // አስተዳዳሪ ማከማቻ
+            if (!localStorage.getItem('admins')) {
+                localStorage.setItem('admins', JSON.stringify([DEFAULT_ADMIN]));
+            }
+            
+            // የስራ ክፍል ሎጎዎች
+            if (!localStorage.getItem('departmentLogos')) {
+                localStorage.setItem('departmentLogos', JSON.stringify({}));
+            }
+            
+            // ማስተካከያዎች
+            if (!localStorage.getItem('settings')) {
+                localStorage.setItem('settings', JSON.stringify({
+                    language: 'am',
+                    notifications: true
+                }));
+            }
+        }
+
+        // በመጫን ጊዜ ኢኒሻላይዝ ማድረግ
+        initializeStorage();
+
+        // ========== የስቴት ማኔጅመንት ==========
+        let currentState = {
+            isAdmin: false,
+            currentAdmin: null,
+            currentDepartment: '',
+            currentLanguage: 'am',
+            files: [],
+            departmentLogos: {},
+            isRecording: false,
+            mediaRecorder: null,
+            audioChunks: []
+        };
+
+        // ========== DOM ኤለመንቶች ==========
+        const customerPage = document.getElementById('customerPage');
+        const adminPage = document.getElementById('adminPage');
+        const feedbackModal = document.getElementById('feedbackModal');
+        const successModal = document.getElementById('successModal');
+        const loginModal = document.getElementById('loginModal');
+        const confirmationModal = document.getElementById('confirmationModal');
+        const closeModalBtn = document.getElementById('closeModal');
+        const feedbackForm = document.getElementById('feedbackForm');
+        const loginForm = document.getElementById('loginForm');
+        const showAdminLoginBtn = document.getElementById('showAdminLogin');
+        const showCustomerViewBtn = document.getElementById('showCustomerView');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const refreshDashboardBtn = document.getElementById('refreshDashboard');
+        const manageAdminsBtn = document.getElementById('manageAdminsBtn');
+        const manageLogosBtn = document.getElementById('manageLogosBtn');
+        const exportDataBtn = document.getElementById('exportDataBtn');
+        const adminManagementSection = document.getElementById('adminManagementSection');
+        const logoManagementSection = document.getElementById('logoManagementSection');
+        const addAdminForm = document.getElementById('addAdminForm');
+        const changePasswordForm = document.getElementById('changePasswordForm');
+        const departmentCards = document.querySelectorAll('.department-card');
+        const ratingButtons = document.querySelectorAll('.rating-btn');
+        const selectedRating = document.getElementById('selectedRating');
+        const voiceAmharicBtn = document.getElementById('voiceAmharicBtn');
+        const stopRecordingBtn = document.getElementById('stopRecordingBtn');
+        const fileInput = document.getElementById('fileInput');
+        const fileList = document.getElementById('fileList');
+        const fileUploadBox = document.getElementById('fileUploadBox');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const loginPasswordToggle = document.getElementById('loginPasswordToggle');
+        const loginPasswordInput = document.getElementById('loginPassword');
+        const adminRoleIndicator = document.getElementById('adminRoleIndicator');
+        const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+        const cancelDeleteBtn = document.getElementById('cancelDeleteBtn');
+        const confirmationMessage = document.getElementById('confirmationMessage');
+
+        // የሎጎ ኢንፑቶች
+        const logoInputs = {
+            'deputy-office': document.getElementById('logoInputDeputyOffice'),
+            'construction-permit': document.getElementById('logoInputConstructionPermit'),
+            'construction-control': document.getElementById('logoInputConstructionControl'),
+            'building-inspiration': document.getElementById('logoInputBuildingInspiration'),
+            'outdoor-advertisement': document.getElementById('logoInputOutdoorAdvertisement'),
+            'documentation': document.getElementById('logoInputDocumentation')
+        };
+
+        // የሎጎ ፕሪቭዮዎች
+        const logoPreviews = {
+            'deputy-office': document.getElementById('logoPreviewDeputyOffice'),
+            'construction-permit': document.getElementById('logoPreviewConstructionPermit'),
+            'construction-control': document.getElementById('logoPreviewConstructionControl'),
+            'building-inspiration': document.getElementById('logoPreviewBuildingInspiration'),
+            'outdoor-advertisement': document.getElementById('logoPreviewOutdoorAdvertisement'),
+            'documentation': document.getElementById('logoPreviewDocumentation')
+        };
+
+        // ========== ኢቬንት ሊስተነሮች ==========
+        // ገጽ አሰሳ
+        showAdminLoginBtn.addEventListener('click', () => {
+            loginModal.style.display = 'flex';
+            document.getElementById('loginUsername').focus();
+        });
+
+        showCustomerViewBtn.addEventListener('click', () => {
+            showCustomerPage();
+        });
+
+        logoutBtn.addEventListener('click', () => {
+            logoutAdmin();
+        });
+
+        refreshDashboardBtn.addEventListener('click', () => {
+            loadAdminDashboard();
+        });
+
+        manageAdminsBtn.addEventListener('click', () => {
+            if (adminManagementSection.style.display === 'none') {
+                showAdminManagement();
+            } else {
+                hideAdminManagement();
+            }
+        });
+
+        manageLogosBtn.addEventListener('click', () => {
+            if (logoManagementSection.style.display === 'none') {
+                showLogoManagement();
+            } else {
+                hideLogoManagement();
+            }
+        });
+
+        exportDataBtn.addEventListener('click', () => {
+            exportFeedbackData();
+        });
+
+        // ሞዳል ቁጥጥር
+        closeModalBtn.addEventListener('click', () => {
+            feedbackModal.style.display = 'none';
+            resetFeedbackForm();
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === feedbackModal) {
+                feedbackModal.style.display = 'none';
+                resetFeedbackForm();
+            }
+            if (e.target === successModal) {
+                successModal.style.display = 'none';
+            }
+            if (e.target === loginModal) {
+                loginModal.style.display = 'none';
+            }
+            if (e.target === confirmationModal) {
+                confirmationModal.style.display = 'none';
+                resetPendingDeletion();
+            }
+        });
+
+        // የስራ ክፍል ካርዶች
+        departmentCards.forEach(card => {
+            const feedbackBtn = card.querySelector('.feedback-btn');
+            feedbackBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                currentState.currentDepartment = card.dataset.dept;
+                const deptName = card.querySelector('h3').textContent;
+                openFeedbackModal(deptName);
+            });
+        });
+
+        // ደረጃ ቁልፎች
+        ratingButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                ratingButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                selectedRating.value = btn.dataset.rating;
+            });
+        });
+
+        // ፋይል መጫን
+        fileInput.addEventListener('change', handleFileSelect);
+        
+        // ፋይሎችን ለመጎተት እና መትተት
+        fileUploadBox.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            fileUploadBox.style.borderColor = 'var(--secondary-blue)';
+            fileUploadBox.style.background = '#f0f5ff';
+        });
+
+        fileUploadBox.addEventListener('dragleave', () => {
+            fileUploadBox.style.borderColor = '#e2e8f0';
+            fileUploadBox.style.background = 'white';
+        });
+
+        fileUploadBox.addEventListener('drop', (e) => {
+            e.preventDefault();
+            fileUploadBox.style.borderColor = '#e2e8f0';
+            fileUploadBox.style.background = 'white';
+            
+            if (e.dataTransfer.files.length) {
+                handleFileSelect({ target: { files: e.dataTransfer.files } });
+            }
+        });
+
+        // ድምጽ መቅዳት
+        voiceAmharicBtn.addEventListener('click', () => startRecording('am-ET'));
+        stopRecordingBtn.addEventListener('click', stopRecording);
+
+        // የመግቢያ የይለፍ ቃል ተግል
+        loginPasswordToggle.addEventListener('click', () => {
+            const type = loginPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            loginPasswordInput.setAttribute('type', type);
+            loginPasswordToggle.innerHTML = type === 'password' ? 
+                '<i class="fas fa-eye"></i>' : 
+                '<i class="fas fa-eye-slash"></i>';
+        });
+
+        // ፎርሞች ማስገቢያ
+        feedbackForm.addEventListener('submit', submitFeedback);
+        loginForm.addEventListener('submit', submitLogin);
+        addAdminForm.addEventListener('submit', submitAddAdmin);
+        changePasswordForm.addEventListener('submit', submitChangePassword);
+
+        // ማጣሪያ ቁልፎች
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const department = btn.dataset.department;
+                filterFeedback(department);
+            });
+        });
+
+        // የሎጎ ኢንፑቶች ለሁሉም የስራ ክፍሎች
+        Object.keys(logoInputs).forEach(dept => {
+            if (logoInputs[dept]) {
+                logoInputs[dept].addEventListener('change', (e) => {
+                    handleLogoUpload(dept, e);
+                });
+            }
+        });
+
+        // የማጥፊያ ማረጋገጫ ቁልፎች
+        confirmDeleteBtn.addEventListener('click', confirmDeleteFeedback);
+        cancelDeleteBtn.addEventListener('click', () => {
+            confirmationModal.style.display = 'none';
+            resetPendingDeletion();
+        });
+
+        // ========== ፈንክሽንስ ==========
+        // ገጽ አሰሳ
+        function showCustomerPage() {
+            customerPage.style.display = 'block';
+            adminPage.style.display = 'none';
+            adminManagementSection.style.display = 'none';
+            logoManagementSection.style.display = 'none';
+            currentState.isAdmin = false;
+            updateAuthButtons();
+            loadDepartmentLogos();
+        }
+
+        function showAdminPage() {
+            customerPage.style.display = 'none';
+            adminPage.style.display = 'block';
+            currentState.isAdmin = true;
+            updateAuthButtons();
+            updateAdminRoleIndicator();
+            loadAdminDashboard();
+        }
+
+        function updateAuthButtons() {
+            if (currentState.isAdmin) {
+                showCustomerViewBtn.classList.remove('hidden');
+                showAdminLoginBtn.classList.add('hidden');
+            } else {
+                showCustomerViewBtn.classList.add('hidden');
+                showAdminLoginBtn.classList.remove('hidden');
+            }
+        }
+
+        function updateAdminRoleIndicator() {
+            if (currentState.currentAdmin && currentState.currentAdmin.isFirstAdmin) {
+                adminRoleIndicator.textContent = " የመጀመሪያ አስተዳዳሪ";
+                adminRoleIndicator.style.background = "var(--accent-gold)";
+                adminRoleIndicator.style.color = "var(--primary-blue)";
+            } else if (currentState.currentAdmin) {
+                adminRoleIndicator.textContent = "አስተዳዳሪ";
+                adminRoleIndicator.style.background = "var(--secondary-blue)";
+                adminRoleIndicator.style.color = "white";
+            } else {
+                adminRoleIndicator.textContent = "";
+                adminRoleIndicator.style.background = "transparent";
+            }
+        }
+
+        function showAdminManagement() {
+            adminManagementSection.style.display = 'block';
+            logoManagementSection.style.display = 'none';
+            manageAdminsBtn.innerHTML = '<i class="fas fa-times"></i> አስተዳደር ዝጋ';
+            manageLogosBtn.innerHTML = '<i class="fas fa-image"></i> ሎጎዎችን አስተዳደር';
+        }
+
+        function hideAdminManagement() {
+            adminManagementSection.style.display = 'none';
+            manageAdminsBtn.innerHTML = '<i class="fas fa-user-shield"></i> አስተዳዳሪዎችን አስተዳደር';
+        }
+
+        function showLogoManagement() {
+            adminManagementSection.style.display = 'none';
+            logoManagementSection.style.display = 'block';
+            manageAdminsBtn.innerHTML = '<i class="fas fa-user-shield"></i> አስተዳዳሪዎችን አስተዳደር';
+            manageLogosBtn.innerHTML = '<i class="fas fa-times"></i> ሎጎዎችን ዝጋ';
+            loadLogoPreviews();
+        }
+
+        function hideLogoManagement() {
+            logoManagementSection.style.display = 'none';
+            manageLogosBtn.innerHTML = '<i class="fas fa-image"></i> ሎጎዎችን አስተዳደር';
+        }
+
+        // የስራ ክፍል ሎጎዎች
+        function loadDepartmentLogos() {
+            const logos = JSON.parse(localStorage.getItem('departmentLogos')) || {};
+            currentState.departmentLogos = logos;
+            
+            Object.keys(departmentNames).forEach(dept => {
+                const logoContainer = document.getElementById(`logo-${dept}`);
+                if (logos[dept]) {
+                    logoContainer.innerHTML = `<img src="${logos[dept]}" class="department-logo" alt="${departmentNames[dept]}">`;
+                }
+            });
+        }
+
+        function loadLogoPreviews() {
+            const logos = JSON.parse(localStorage.getItem('departmentLogos')) || {};
+            
+            Object.keys(logoPreviews).forEach(dept => {
+                const preview = logoPreviews[dept];
+                if (logos[dept]) {
+                    preview.innerHTML = `<img src="${logos[dept]}" alt="${departmentNames[dept]}">`;
+                } else {
+                    preview.innerHTML = `<i class="fas fa-image" style="font-size: 2.5rem; color: #718096;"></i>`;
+                }
+            });
+        }
+
+        function handleLogoUpload(dept, e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            
+            if (!file.type.match('image.*')) {
+                showNotification('እባክዎ የምስል ፋይል ይምረጡ', 'error');
+                return;
+            }
+            
+            if (file.size > 2 * 1024 * 1024) {
+                showNotification('ፋይል መጠን በጣም ትልቅ ነው (ከ2MB በታች ይሁን)', 'error');
+                return;
+            }
+            
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                const logoData = event.target.result;
+                
+                // ፕሪቭዩ ማሻሻል
+                logoPreviews[dept].innerHTML = `<img src="${logoData}" alt="${departmentNames[dept]}">`;
+                
+                // በስቴት ውስጥ ማከማቸት
+                currentState.departmentLogos[dept] = logoData;
+                
+                showNotification(`${departmentNames[dept]} ሎጎ ተጫነ`, 'success');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function saveAllLogos() {
+            localStorage.setItem('departmentLogos', JSON.stringify(currentState.departmentLogos));
+            showNotification('ሁሉም ሎጎዎች ተቀምጠዋል', 'success');
+            loadDepartmentLogos();
+        }
+
+        // የአስተያየት ሞዳል
+        function openFeedbackModal(deptName) {
+            document.getElementById('modalTitle').textContent = `አስተያየት ለ ${deptName}`;
+            feedbackModal.style.display = 'flex';
+        }
+
+        function resetFeedbackForm() {
+            feedbackForm.reset();
+            currentState.files = [];
+            fileList.innerHTML = '';
+            ratingButtons[2].click();
+            document.getElementById('woreda').selectedIndex = 0;
+            stopRecording();
+        }
+
+        function closeSuccessModal() {
+            successModal.style.display = 'none';
+            feedbackModal.style.display = 'none';
+            resetFeedbackForm();
+        }
+
+        // ፋይል ማካሄድ
+        function handleFileSelect(e) {
+            const files = Array.from(e.target.files);
+            
+            files.forEach(file => {
+                if (file.size > 10 * 1024 * 1024) {
+                    showNotification('ፋይል መጠን በጣም ትልቅ ነው: ' + file.name, 'error');
+                    return;
+                }
+                
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    const fileData = {
+                        name: file.name,
+                        type: file.type,
+                        size: file.size,
+                        data: event.target.result,
+                        id: Date.now() + Math.random()
+                    };
+                    
+                    currentState.files.push(fileData);
+                    renderFileList();
+                };
+                reader.readAsDataURL(file);
+            });
+            
+            fileInput.value = '';
+        }
+
+        function renderFileList() {
+            fileList.innerHTML = '';
+            
+            currentState.files.forEach((file, index) => {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-item';
+                
+                let fileIcon = 'fa-file';
+                if (file.type.includes('image')) fileIcon = 'fa-file-image';
+                else if (file.type.includes('pdf')) fileIcon = 'fa-file-pdf';
+                else if (file.type.includes('word') || file.type.includes('document')) fileIcon = 'fa-file-word';
+                else if (file.type.includes('audio')) fileIcon = 'fa-file-audio';
+                
+                fileItem.innerHTML = `
+                    <div class="file-icon">
+                        <i class="fas ${fileIcon}"></i>
+                        <span>${file.name} (${formatFileSize(file.size)})</span>
+                    </div>
+                    <button type="button" class="remove-file" onclick="removeFile(${index})">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
+                
+                fileList.appendChild(fileItem);
+            });
+        }
+
+        function removeFile(index) {
+            currentState.files.splice(index, 1);
+            renderFileList();
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 ባይት';
+            const k = 1024;
+            const sizes = ['ባይት', 'ኪ.ባ', 'ሜ.ባ', 'ጊ.ባ'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        // ድምጽ መቅዳት
+        function startRecording(language) {
+            if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                showNotification('ማይክሮፎን መዳረሻ በአሳሽዎ ውስጥ አይደገፍም', 'error');
+                return;
+            }
+
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(stream => {
+                    currentState.mediaRecorder = new MediaRecorder(stream);
+                    currentState.audioChunks = [];
+
+                    currentState.mediaRecorder.ondataavailable = (event) => {
+                        currentState.audioChunks.push(event.data);
+                    };
+
+                    currentState.mediaRecorder.onstop = () => {
+                        const audioBlob = new Blob(currentState.audioChunks, { type: 'audio/webm' });
+                        const reader = new FileReader();
+                        reader.onload = () => {
+                            const audioFile = {
+                                name: `ድምጽ-${Date.now()}.webm`,
+                                type: 'audio/webm',
+                                size: audioBlob.size,
+                                data: reader.result,
+                                id: Date.now() + Math.random()
+                            };
+                            currentState.files.push(audioFile);
+                            renderFileList();
+                        };
+                        reader.readAsDataURL(audioBlob);
+                        
+                        stream.getTracks().forEach(track => track.stop());
+                    };
+
+                    currentState.mediaRecorder.start();
+                    currentState.isRecording = true;
+                    
+                    voiceAmharicBtn.classList.add('recording');
+                    stopRecordingBtn.style.display = 'flex';
+                    
+                    showNotification('መቅዳት ጀመረ...', 'info');
+                })
+                .catch(error => {
+                    console.error('ማይክሮፎን ላይ ስህተት:', error);
+                    showNotification('ማይክሮፎን ላይ ስህተት። ፈቃዶችን ያረጋግጡ።', 'error');
+                });
+        }
+
+        function stopRecording() {
+            if (currentState.mediaRecorder && currentState.isRecording) {
+                currentState.mediaRecorder.stop();
+                currentState.isRecording = false;
+                
+                voiceAmharicBtn.classList.remove('recording');
+                stopRecordingBtn.style.display = 'none';
+                
+                showNotification('ድምጽ ተቀምጧል', 'success');
+            }
+        }
+
+        // አስተያየት ማስገቢያ
+        function submitFeedback(e) {
+            e.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const woreda = document.getElementById('woreda').value;
+            const feedbackText = document.getElementById('feedbackText').value.trim();
+            
+            if (!fullName || !phone || !woreda || !feedbackText) {
+                showNotification('እባክዎ ሁሉንም አስፈላጊ መስኮቶች ይሙሉ', 'error');
+                return;
+            }
+            
+            const feedback = {
+                id: Date.now(),
+                department: currentState.currentDepartment,
+                fullName: fullName,
+                phone: phone,
+                email: document.getElementById('email').value.trim() || '',
+                woreda: woreda,
+                text: feedbackText,
+                additionalInfo: document.getElementById('additionalInfo').value.trim() || '',
+                rating: parseInt(selectedRating.value),
+                date: new Date().toISOString(),
+                status: 'አዲስ',
+                attachments: currentState.files
+            };
+            
+            const feedbackData = JSON.parse(localStorage.getItem('feedback'));
+            feedbackData[currentState.currentDepartment].push(feedback);
+            localStorage.setItem('feedback', JSON.stringify(feedbackData));
+            
+            successModal.style.display = 'flex';
+            
+            setTimeout(() => {
+                resetFeedbackForm();
+            }, 300);
+            
+            showNotification('አስተያየትዎ በተሳካ ሁኔታ ደርሶናል!', 'success');
+        }
+
+        // አስተዳደር ፈንክሽንስ
+        function submitLogin(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            const admins = JSON.parse(localStorage.getItem('admins'));
+            const admin = admins.find(a => a.username === username && a.password === password);
+            
+            if (admin) {
+                currentState.currentAdmin = admin;
+                document.getElementById('loggedInAdmin').textContent = admin.username;
+                
+                loginModal.style.display = 'none';
+                loginForm.reset();
+                showAdminPage();
+                showNotification(`እንኳን ደህና መጡ ${admin.username}!`, 'success');
+            } else {
+                showNotification('የተሳሳተ የተጠቃሚ ስም ወይም የይለፍ ቃል ስለሆነ እንደገና ይሙሉ', 'error');
+            }
+        }
+
+        function logoutAdmin() {
+            currentState.currentAdmin = null;
+            currentState.isAdmin = false;
+            showCustomerPage();
+            showNotification('ተሳክቶሎዎታል!!!', 'info');
+        }
+
+        function loadAdminDashboard() {
+            const feedbackData = JSON.parse(localStorage.getItem('feedback'));
+            const admins = JSON.parse(localStorage.getItem('admins'));
+            
+            let totalFeedback = 0;
+            let totalRating = 0;
+            let ratingCount = 0;
+            let newFeedback = 0;
+            
+            Object.values(feedbackData).forEach(feedbacks => {
+                totalFeedback += feedbacks.length;
+                feedbacks.forEach(fb => {
+                    if (fb.status === 'አዲስ') newFeedback++;
+                    if (fb.rating) {
+                        totalRating += fb.rating;
+                        ratingCount++;
+                    }
+                });
+            });
+            
+            const averageRating = ratingCount > 0 ? (totalRating / ratingCount).toFixed(1) : '0.0';
+            
+            const statsGrid = document.getElementById('statsGrid');
+            statsGrid.innerHTML = `
+                <div class="stat-card">
+                    <h3>ጠቅላላ አስተያየቶች</h3>
+                    <div class="stat-value">${totalFeedback}</div>
+                </div>
+                <div class="stat-card">
+                    <h3>አማካኝ ደረጃ</h3>
+                    <div class="stat-value">${averageRating}/5</div>
+                </div>
+                <div class="stat-card">
+                    <h3>አዲስ አስተያየቶች</h3>
+                    <div class="stat-value">${newFeedback}</div>
+                </div>
+                <div class="stat-card">
+                    <h3> አዲስ  በአስተዳዳሪዎች ያልታዩ </h3>
+                    <div class="stat-value">${admins.length}</div>
+                </div>
+            `;
+            
+            loadAllFeedback();
+            loadAdminList();
+        }
+
+        function loadAllFeedback(department = 'all') {
+            const feedbackData = JSON.parse(localStorage.getItem('feedback'));
+            const feedbackList = document.getElementById('adminFeedbackList');
+            
+            let allFeedback = [];
+            Object.entries(feedbackData).forEach(([dept, feedbacks]) => {
+                if (department === 'all' || department === dept) {
+                    feedbacks.forEach(fb => {
+                        allFeedback.push({
+                            ...fb,
+                            department: dept
+                        });
+                    });
+                }
+            });
+            
+            allFeedback.sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            if (allFeedback.length === 0) {
+                feedbackList.innerHTML = `
+                    <div style="padding: 30px; text-align: center; color: #718096;">
+                        <i class="fas fa-comment-slash" style="font-size: 2.5rem; margin-bottom: 15px;"></i>
+                        <p>ምንም አስተያየት የለም።</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            feedbackList.innerHTML = allFeedback.map(fb => createFeedbackItem(fb)).join('');
+        }
+
+        function createFeedbackItem(feedback) {
+            const date = new Date(feedback.date).toLocaleDateString('am-ET', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            
+            let starsHtml = '';
+            for (let i = 1; i <= 5; i++) {
+                starsHtml += `<span class="star ${i <= feedback.rating ? 'filled' : ''}">★</span>`;
+            }
+            
+            let attachmentsHtml = '';
+            if (feedback.attachments && feedback.attachments.length > 0) {
+                attachmentsHtml = `
+                    <div class="attachments-section">
+                        <div class="attachments-title">
+                            <i class="fas fa-paperclip"></i>
+                            አባሪዎች (${feedback.attachments.length})
+                        </div>
+                        <div class="attachments-list">
+                            ${feedback.attachments.map(att => `
+                                <a href="${att.data}" download="${att.name}" class="attachment-item">
+                                    <i class="fas ${getFileIcon(att.type)} attachment-icon"></i>
+                                    <span>${att.name}</span>
+                                </a>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // የመጀመሪያ አስተዳዳሪ ብቻ የሚያየው የማጥፊያ ቁልፍ
+            let deleteButtonHtml = '';
+            if (currentState.currentAdmin && currentState.currentAdmin.isFirstAdmin) {
+                deleteButtonHtml = `
+                    <button onclick="showDeleteConfirmation(${feedback.id}, '${feedback.department}')" class="delete-feedback-btn">
+                        <i class="fas fa-trash"></i> አስተያየቱን ሰርዝ
+                    </button>
+                `;
+            }
+            
+            return `
+                <div class="feedback-item">
+                    <div class="feedback-meta">
+                        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                            <span class="feedback-department">${departmentNames[feedback.department]}</span>
+                            <span class="feedback-date">${date}</span>
+                            ${feedback.status === 'አዲስ' ? 
+                                '<span style="background: var(--success-green); color: white; padding: 4px 10px; border-radius: 12px; font-size: 0.75rem;">አዲስ</span>' : ''}
+                        </div>
+                        <div class="feedback-rating">
+                            ${starsHtml}
+                        </div>
+                    </div>
+                    
+                    <div class="feedback-content">
+                        <div class="feedback-text">${feedback.text}</div>
+                        
+                        ${feedback.additionalInfo ? `
+                            <div style="margin-top: 12px; padding: 12px; background: #f8fafc; border-radius: var(--radius-md);">
+                                <strong>ተጨማሪ አስተያየቶች:</strong>
+                                <p style="margin-top: 5px;">${feedback.additionalInfo}</p>
+                            </div>
+                        ` : ''}
+                    </div>
+                    
+                    <div class="feedback-details">
+                        <div class="detail-item">
+                            <span class="detail-label">ሙሉ ስም</span>
+                            <span class="detail-value">${feedback.fullName}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">ስልክ ቁጥር</span>
+                            <span class="detail-value">${feedback.phone}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">ኢሜይል</span>
+                            <span class="detail-value">${feedback.email || 'አልተሰጠም'}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">ወረዳ</span>
+                            <span class="detail-value">${feedback.woreda}</span>
+                        </div>
+                    </div>
+                    
+                    ${attachmentsHtml}
+                    
+                    <!-- የማጥፊያ ቁልፍ (የመጀመሪያ አስተዳዳሪ ብቻ) -->
+                    ${deleteButtonHtml ? `
+                        <div style="margin-top: 15px; display: flex; justify-content: flex-end;">
+                            ${deleteButtonHtml}
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+        }
+
+        function getFileIcon(fileType) {
+            if (fileType.includes('image')) return 'fa-file-image';
+            if (fileType.includes('pdf')) return 'fa-file-pdf';
+            if (fileType.includes('word') || fileType.includes('document')) return 'fa-file-word';
+            if (fileType.includes('audio')) return 'fa-file-audio';
+            return 'fa-file';
+        }
+
+        function filterFeedback(department) {
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.department === department) {
+                    btn.classList.add('active');
+                }
+            });
+            loadAllFeedback(department);
+        }
+
+        // የአስተያየት ማጥፊያ ስርዓት
+        function showDeleteConfirmation(feedbackId, department) {
+            if (!currentState.currentAdmin || !currentState.currentAdmin.isFirstAdmin) {
+                showNotification(' አይቻልም።', 'error');
+                return;
+            }
+            
+            // አስተያየቱን ለማግኘት
+            const feedbackData = JSON.parse(localStorage.getItem('feedback'));
+            const departmentFeedback = feedbackData[department];
+            const feedbackIndex = departmentFeedback.findIndex(item => item.id === feedbackId);
+            
+            if (feedbackIndex === -1) {
+                showNotification('አስተያየቱ አልተገኘም።', 'error');
+                return;
+            }
+            
+            const feedback = departmentFeedback[feedbackIndex];
+            
+            // ለማጥፊያ መረጃ ማከማቸት
+            pendingDeletion = {
+                feedbackId: feedbackId,
+                department: department,
+                feedbackIndex: feedbackIndex
+            };
+            
+            // የማረጋገጫ መልእክት ማዘጋጀት
+            confirmationMessage.textContent = `"${feedback.text.substring(0, 100)}${feedback.text.length > 100 ? '...' : ''}" የሚለውን አስተያየት ለመሰረዝ እርግጠኛ ነዎት? ይህ ተግባር መቀለብ የለበትም።`;
+            
+            // ማረጋገጫ ሞዳል ማሳየት
+            confirmationModal.style.display = 'flex';
+        }
+
+        function resetPendingDeletion() {
+            pendingDeletion = {
+                feedbackId: null,
+                department: null,
+                feedbackIndex: null
+            };
+        }
+
+        function confirmDeleteFeedback() {
+            if (!pendingDeletion.feedbackId || !pendingDeletion.department) {
+                showNotification('ለመሰረዝ መረጃ አልተገኘም።', 'error');
+                confirmationModal.style.display = 'none';
+                return;
+            }
+            
+            if (!currentState.currentAdmin || !currentState.currentAdmin.isFirstAdmin) {
+                showNotification('አይቻልም።', 'error');
+                confirmationModal.style.display = 'none';
+                resetPendingDeletion();
+                return;
+            }
+            
+            const { feedbackId, department, feedbackIndex } = pendingDeletion;
+            
+            const feedbackData = JSON.parse(localStorage.getItem('feedback'));
+            const departmentFeedback = feedbackData[department];
+            
+            // አስተያየቱን ማጥፋት
+            if (feedbackIndex !== -1 && departmentFeedback[feedbackIndex].id === feedbackId) {
+                departmentFeedback.splice(feedbackIndex, 1);
+                localStorage.setItem('feedback', JSON.stringify(feedbackData));
+                
+                showNotification('አስተያየቱ በተሳካ ሁኔታ ተሰርዟል!', 'success');
+                
+                // የአሁኑን ማጣሪያ አድስ
+                const activeFilterBtn = document.querySelector('.filter-btn.active');
+                const currentFilter = activeFilterBtn ? activeFilterBtn.dataset.department : 'all';
+                loadAllFeedback(currentFilter);
+                
+                // ስታቲስቲክስ አድስ
+                loadAdminDashboard();
+            } else {
+                showNotification('አስተያየቱ አልተገኘም።', 'error');
+            }
+            
+            // ሞዳል ዝጋ እና መረጃ አጽዳ
+            confirmationModal.style.display = 'none';
+            resetPendingDeletion();
+        }
+
+        function loadAdminList() {
+            const admins = JSON.parse(localStorage.getItem('admins'));
+            const adminList = document.getElementById('adminList');
+            
+            adminList.innerHTML = `
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px;">
+                    ${admins.map(admin => `
+                        <div style="background: white; padding: 15px; border-radius: var(--radius-md); border: 2px solid #e2e8f0;">
+                            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                                <div style="width: 36px; height: 36px; background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                    ${admin.username.charAt(0).toUpperCase()}
+                                </div>
+                                <div>
+                                    <strong>${admin.username}</strong>
+                                    ${admin.isFirstAdmin ? 
+                                        '<span style="background: var(--accent-gold); color: var(--primary-blue); padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; margin-left: 8px;">የመጀመሪያ አስተዳዳሪ</span>' : 
+                                        '<span style="background: var(--secondary-blue); color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; margin-left: 8px;">አስተዳዳሪ</span>'}
+                                </div>
+                            </div>
+                            <div style="color: #718096; font-size: 0.85rem;">
+                                ${admin.fullName || 'ሙሉ ስም አላስገቡም'}
+                            </div>
+                            <div style="color: #718096; font-size: 0.75rem; margin-top: 5px;">
+                                ${admin.isFirstAdmin ? '✓ አስተያየቶችን መሰረዝ ይችላል' : '✗ አስተያየቶችን መሰረዝ አይችልም'}
+                            </div>
+                            ${!admin.isFirstAdmin && currentState.currentAdmin && currentState.currentAdmin.isFirstAdmin ? `
+                                <button onclick="removeAdmin('${admin.username}')" style="margin-top: 12px; padding: 6px 12px; background: var(--danger-red); color: white; border: none; border-radius: var(--radius-md); cursor: pointer; font-size: 0.85rem;">
+                                    አስተዳዳሪውን አስወግድ
+                                </button>
+                            ` : ''}
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function submitAddAdmin(e) {
+            e.preventDefault();
+            
+            if (!currentState.currentAdmin || !currentState.currentAdmin.isFirstAdmin) {
+                showNotification('የመጀመሪያ አስተዳዳሪ ብቻ አዲስ አስተዳዳሪ መጨመር ይችላል', 'error');
+                return;
+            }
+            
+            const username = document.getElementById('newUsername').value.trim();
+            const password = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (!username || !password) {
+                showNotification('እባክዎ ሁሉንም መስኮቶች ይሙሉ', 'error');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                showNotification('የይለፍ ቃላት አይዛመዱም', 'error');
+                return;
+            }
+            
+            const admins = JSON.parse(localStorage.getItem('admins'));
+            
+            if (admins.find(a => a.username === username)) {
+                showNotification('የተጠቃሚ ስም አስቀድሞ አለ', 'error');
+                return;
+            }
+            
+            admins.push({
+                username,
+                password,
+                isFirstAdmin: false,
+                fullName: username
+            });
+            
+            localStorage.setItem('admins', JSON.stringify(admins));
+            addAdminForm.reset();
+            loadAdminList();
+            showNotification(`አስተዳዳሪ ${username} በተሳካ ሁኔታ አባል ሆኖአል!`, 'success');
+        }
+
+        function submitChangePassword(e) {
+            e.preventDefault();
+            
+            if (!currentState.currentAdmin) {
+                showNotification('የይለፍ ቃል ለመቀየር መግባት አለብዎት', 'error');
+                return;
+            }
+            
+            const currentPassword = document.getElementById('currentPassword').value;
+            const newPassword = document.getElementById('newUserPassword').value;
+            const confirmNewPassword = document.getElementById('confirmNewPassword').value;
+            
+            if (currentPassword !== currentState.currentAdmin.password) {
+                showNotification('የአሁኑ የይለፍ ቃል ትክክል አይደለም', 'error');
+                return;
+            }
+            
+            if (newPassword !== confirmNewPassword) {
+                showNotification('ከአዲሱ የይለፍ ቃላት ጋር አይዛመድም', 'error');
+                return;
+            }
+            
+            const admins = JSON.parse(localStorage.getItem('admins'));
+            const adminIndex = admins.findIndex(a => a.username === currentState.currentAdmin.username);
+            
+            admins[adminIndex].password = newPassword;
+            localStorage.setItem('admins', JSON.stringify(admins));
+            
+            currentState.currentAdmin.password = newPassword;
+            changePasswordForm.reset();
+            showNotification('የይለፍ ቃልዎ በተሳካ ሁኔታ ተቀይሯል!', 'success');
+        }
+
+        function removeAdmin(username) {
+            if (!currentState.currentAdmin || !currentState.currentAdmin.isFirstAdmin) {
+                showNotification('የመጀመሪያ አስተዳዳሪ ብቻ አስተዳዳሪ ማስወገድ ይችላል', 'error');
+                return;
+            }
+            
+            if (username === currentState.currentAdmin.username) {
+                showNotification('ራስዎን መሰረዝ አይችሉም', 'error');
+                return;
+            }
+            
+            if (confirm(`አስተዳዳሪ ${username} ን ለመሰረዝ እርግጠኛ ነዎት?`)) {
+                const admins = JSON.parse(localStorage.getItem('admins'));
+                const filteredAdmins = admins.filter(a => a.username !== username);
+                localStorage.setItem('admins', JSON.stringify(filteredAdmins));
+                loadAdminList();
+                showNotification(`አስተዳዳሪ ${username} በተሳካ ሁኔታ ተሰርዟል!`, 'success');
+            }
+        }
+
+        function exportFeedbackData() {
+            const feedbackData = JSON.parse(localStorage.getItem('feedback'));
+            const dataStr = JSON.stringify(feedbackData, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+            
+            const exportFileDefaultName = `feedback-data-${new Date().toISOString().split('T')[0]}.json`;
+            
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+            
+            showNotification('መረጃዎ በተሳካ ሁኔታ ተላከ!', 'success');
+        }
+
+        // ማሳወቂያ ስርዓት
+        function showNotification(message, type = 'info') {
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+                <span>${message}</span>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // ገጽ ኢኒሻላይዝ
+        showCustomerPage();
+        updateAuthButtons();
+        loadDepartmentLogos();
+    </script>
+</body>
+</html>
