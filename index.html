@@ -2,12 +2,11 @@
 <html lang="am" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>በኮልፌ ቀራኒዮ ክፍለ ከተማ የግንባታ ፈቃድ እና ቁጥጥር ጽ/ቤት - የአስተያየት እና የጥያቄ ድህረገጽ</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Abyssinica+SIL&display=swap');
-        
         :root {
             --primary-blue: #1a365d;
             --secondary-blue: #2d4a8a;
@@ -21,13 +20,15 @@
             --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.08);
             --radius-lg: 12px;
             --radius-md: 8px;
+            --header-height: 70px;
+            --mobile-header-height: 60px;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Abyssinica SIL', 'Noto Sans Ethiopic', 'Segoe UI', sans-serif;
+            font-family: 'Noto Sans Ethiopic', 'Segoe UI', sans-serif;
         }
 
         body {
@@ -35,8 +36,12 @@
             min-height: 100vh;
             color: var(--dark-text);
             line-height: 1.6;
+            padding-top: var(--header-height);
             overflow-x: hidden;
-            font-family: 'Abyssinica SIL', serif;
+        }
+
+        .amharic {
+            font-family: 'Noto Sans Ethiopic', 'Nyala', sans-serif;
         }
 
         /* Hidden sections */
@@ -44,40 +49,57 @@
             display: none !important;
         }
 
-        /* Main Header - Removed fixed positioning */
+        /* Main Header - Fixed and Movable */
         .main-header {
             background: white;
-            padding: 15px 20px;
+            padding: 0 5%;
             box-shadow: var(--shadow-md);
-            z-index: 100;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .header-scrolled {
+            height: 60px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .header-content {
-            text-align: center;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
         }
 
         .logo-container {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 12px;
-            flex-direction: column;
+            gap: 10px;
+            min-width: 0;
+            flex: 1;
         }
 
         .logo {
-            width: 70px;
-            height: 70px;
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
             background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 1.2rem;
             color: white;
             font-weight: bold;
-            border: 3px solid var(--accent-gold);
-            padding: 12px;
+            border: 2px solid var(--accent-gold);
         }
 
         .logo img {
@@ -87,47 +109,34 @@
             object-fit: cover;
         }
 
+        .office-name {
+            flex: 1;
+            min-width: 0;
+            overflow: hidden;
+        }
+
         .office-name h1 {
-            font-size: 1.4rem;
+            font-size: 1rem;
             color: var(--primary-blue);
-            margin-bottom: 5px;
-            font-family: 'Abyssinica SIL', serif;
+            margin: 0;
+            line-height: 1.3;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .slogan {
-            font-size: 1rem;
-            color: var(--secondary-blue);
-            font-weight: 600;
-            margin-top: 8px;
-            padding: 8px 12px;
-            background: linear-gradient(135deg, rgba(26, 54, 93, 0.1) 0%, rgba(212, 175, 55, 0.1) 100%);
-            border-radius: var(--radius-md);
-            display: inline-block;
-            width: 100%;
-            max-width: 600px;
-            font-family: 'Abyssinica SIL', serif;
+            display: none;
         }
 
         .header-controls {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 12px;
-        }
-
-        .auth-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 12px;
-            justify-content: center;
-            width: 100%;
-            flex-direction: column;
+            gap: 8px;
+            flex-shrink: 0;
         }
 
         .auth-btn {
-            padding: 10px 20px;
+            padding: 8px 12px;
             border: none;
             border-radius: var(--radius-md);
             cursor: pointer;
@@ -135,13 +144,19 @@
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 8px;
-            width: 100%;
-            max-width: 300px;
-            margin: 0 auto;
-            font-size: 0.95rem;
-            font-family: 'Abyssinica SIL', serif;
+            gap: 5px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        .auth-btn i {
+            font-size: 1rem;
+        }
+
+        .auth-btn h1, .auth-btn h2 {
+            font-size: 0.85rem;
+            margin: 0;
+            display: none;
         }
 
         .auth-btn.admin-login {
@@ -159,11 +174,22 @@
             box-shadow: var(--shadow-md);
         }
 
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            cursor: pointer;
+            padding: 5px;
+        }
+
         /* Hero Section */
         .hero-section {
             text-align: center;
-            padding: 30px 15px;
-            max-width: 1000px;
+            padding: 25px 15px;
+            max-width: 1200px;
             margin: 0 auto;
             background: linear-gradient(135deg, rgba(26, 54, 93, 0.05) 0%, rgba(212, 175, 55, 0.05) 100%);
             border-radius: var(--radius-lg);
@@ -172,24 +198,17 @@
         }
 
         .hero-title {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: var(--primary-blue);
-            margin-bottom: 12px;
-            line-height: 1.2;
-            padding: 0 10px;
-            font-family: 'Abyssinica SIL', serif;
+            margin-bottom: 10px;
+            line-height: 1.3;
         }
 
         .hero-subtitle {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--secondary-blue);
-            margin-bottom: 15px;
-            line-height: 1.7;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 0 10px;
-            font-family: 'Abyssinica SIL', serif;
+            margin-bottom: 10px;
+            line-height: 1.6;
         }
 
         /* Customer Feedback Page */
@@ -197,7 +216,6 @@
             padding: 15px;
             max-width: 1400px;
             margin: 0 auto;
-            width: 100%;
         }
 
         .departments-section {
@@ -206,20 +224,19 @@
 
         .section-title {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .section-title h2 {
-            font-size: 1.8rem;
+            font-size: 1.3rem;
             color: var(--primary-blue);
-            margin-bottom: 8px;
-            padding: 0 10px;
-            font-family: 'Abyssinica SIL', serif;
+            margin-bottom: 10px;
+            line-height: 1.4;
         }
 
         .departments-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
             margin-bottom: 30px;
         }
@@ -229,16 +246,16 @@
             border-radius: var(--radius-lg);
             overflow: hidden;
             box-shadow: var(--shadow-md);
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
             cursor: pointer;
             border: 2px solid transparent;
-            height: 100%;
             display: flex;
             flex-direction: column;
+            height: 100%;
         }
 
         .department-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
             border-color: var(--accent-gold);
         }
@@ -249,7 +266,6 @@
             color: white;
             text-align: center;
             flex-shrink: 0;
-            position: relative;
         }
 
         .card-icon {
@@ -258,9 +274,8 @@
         }
 
         .card-header h3 {
-            font-size: 1.4rem;
-            margin-bottom: 6px;
-            font-family: 'Abyssinica SIL', serif;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
         }
 
         .card-body {
@@ -270,39 +285,29 @@
             flex-direction: column;
         }
 
-        .card-body h2 {
-            font-size: 1.2rem;
-            color: var(--primary-blue);
-            margin-bottom: 10px;
-            text-align: center;
-            font-family: 'Abyssinica SIL', serif;
-        }
-
         .card-body p {
             color: #4a5568;
             margin-bottom: 15px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             flex-grow: 1;
-            font-family: 'Abyssinica SIL', serif;
         }
 
         /* Department Logo Container */
         .department-logo-container {
             text-align: center;
             margin-bottom: 15px;
-            position: relative;
         }
 
         .department-logo-placeholder {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             margin: 0 auto 10px;
             background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 3px solid #e2e8f0;
+            border: 2px solid #e2e8f0;
             overflow: hidden;
         }
 
@@ -315,6 +320,13 @@
             height: 100%;
             object-fit: cover;
             border-radius: 50%;
+        }
+
+        .card-body h2 {
+            font-size: 1.1rem;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            text-align: center;
         }
 
         .feedback-btn {
@@ -330,31 +342,13 @@
             transition: all 0.3s ease;
             text-align: center;
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             margin-top: auto;
-            position: relative;
-            overflow: hidden;
-            font-family: 'Abyssinica SIL', serif;
         }
 
         .feedback-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(26, 54, 93, 0.3);
-        }
-
-        .feedback-btn::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
-        }
-
-        .feedback-btn:hover::after {
-            left: 100%;
         }
 
         /* Feedback Modal */
@@ -368,14 +362,14 @@
             display: none;
             justify-content: center;
             align-items: center;
-            z-index: 1001;
+            z-index: 2000;
             padding: 15px;
         }
 
         .feedback-container {
             background: white;
             width: 100%;
-            max-width: 900px;
+            max-width: 800px;
             border-radius: var(--radius-lg);
             overflow: hidden;
             max-height: 90vh;
@@ -390,6 +384,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
 
         .close-modal {
@@ -400,7 +397,7 @@
             height: 35px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -410,7 +407,6 @@
 
         .close-modal:hover {
             background: rgba(255, 255, 255, 0.3);
-            transform: rotate(90deg);
         }
 
         .feedback-body {
@@ -418,11 +414,11 @@
         }
 
         .form-section {
-            margin-bottom: 25px;
-            padding: 20px;
+            margin-bottom: 20px;
+            padding: 15px;
             background: #f8fafc;
             border-radius: var(--radius-md);
-            border-left: 4px solid var(--secondary-blue);
+            border-left: 3px solid var(--secondary-blue);
         }
 
         .form-section h4 {
@@ -431,13 +427,12 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 1.1rem;
-            font-family: 'Abyssinica SIL', serif;
+            font-size: 1rem;
         }
 
         .form-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 1fr;
             gap: 15px;
             margin-bottom: 15px;
         }
@@ -451,8 +446,7 @@
             margin-bottom: 6px;
             font-weight: 600;
             color: var(--primary-blue);
-            font-size: 0.95rem;
-            font-family: 'Abyssinica SIL', serif;
+            font-size: 0.9rem;
         }
 
         .form-group label.required::after {
@@ -462,12 +456,11 @@
 
         .form-input {
             width: 100%;
-            padding: 12px 14px;
+            padding: 12px;
             border: 2px solid #e2e8f0;
             border-radius: var(--radius-md);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
-            font-family: 'Abyssinica SIL', serif;
         }
 
         .form-input:focus {
@@ -476,20 +469,16 @@
             outline: none;
         }
 
-        .textarea-container {
-            position: relative;
-        }
-
         .feedback-textarea {
             width: 100%;
             min-height: 120px;
             padding: 15px;
             border: 2px solid #e2e8f0;
             border-radius: var(--radius-md);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             resize: vertical;
             transition: all 0.3s ease;
-            font-family: 'Abyssinica SIL', serif;
+            font-family: inherit;
         }
 
         .feedback-textarea:focus {
@@ -503,14 +492,6 @@
             margin-top: 15px;
         }
 
-        .file-upload-label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--primary-blue);
-            font-family: 'Abyssinica SIL', serif;
-        }
-
         .file-upload-box {
             border: 2px dashed #e2e8f0;
             border-radius: var(--radius-md);
@@ -520,15 +501,10 @@
             background: white;
         }
 
-        .file-upload-box:hover {
-            border-color: var(--secondary-blue);
-            background: #f8fafc;
-        }
-
         .file-upload-box i {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: var(--secondary-blue);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .file-input {
@@ -536,10 +512,9 @@
         }
 
         .file-info {
-            margin-top: 12px;
-            font-size: 0.85rem;
+            margin-top: 10px;
+            font-size: 0.8rem;
             color: #718096;
-            font-family: 'Abyssinica SIL', serif;
         }
 
         .file-list {
@@ -550,42 +525,24 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 10px 12px;
+            padding: 10px;
             background: white;
             border-radius: var(--radius-md);
             margin-bottom: 8px;
             border: 1px solid #e2e8f0;
-            font-size: 0.9rem;
-        }
-
-        .file-icon {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .file-icon i {
-            color: var(--secondary-blue);
-        }
-
-        .remove-file {
-            background: none;
-            border: none;
-            color: var(--danger-red);
-            cursor: pointer;
-            font-size: 1.1rem;
+            font-size: 0.85rem;
         }
 
         /* Voice Controls */
         .voice-controls {
             display: flex;
-            gap: 12px;
-            margin-top: 12px;
+            gap: 10px;
+            margin-top: 10px;
             flex-wrap: wrap;
         }
 
         .voice-btn {
-            padding: 10px 20px;
+            padding: 10px 15px;
             background: white;
             border: 2px solid #e2e8f0;
             border-radius: var(--radius-md);
@@ -595,16 +552,9 @@
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s ease;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             flex: 1;
-            min-width: 200px;
             justify-content: center;
-            font-family: 'Abyssinica SIL', serif;
-        }
-
-        .voice-btn:hover {
-            border-color: var(--secondary-blue);
-            background: #f0f5ff;
         }
 
         .voice-btn.recording {
@@ -623,13 +573,13 @@
         /* Rating Section */
         .rating-section {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 8px;
-            margin-top: 12px;
+            margin-top: 10px;
         }
 
         .rating-btn {
-            padding: 12px 15px;
+            padding: 10px;
             background: white;
             border: 2px solid #e2e8f0;
             border-radius: var(--radius-md);
@@ -637,8 +587,7 @@
             transition: all 0.3s ease;
             text-align: center;
             font-weight: 600;
-            font-size: 0.9rem;
-            font-family: 'Abyssinica SIL', serif;
+            font-size: 0.85rem;
         }
 
         .rating-btn:hover {
@@ -655,25 +604,18 @@
         /* Woreda Selection */
         .woreda-select {
             width: 100%;
-            padding: 12px 14px;
+            padding: 12px;
             border: 2px solid #e2e8f0;
             border-radius: var(--radius-md);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             background: white;
             cursor: pointer;
-            font-family: 'Abyssinica SIL', serif;
-        }
-
-        .woreda-select:focus {
-            border-color: var(--secondary-blue);
-            box-shadow: 0 0 0 3px rgba(45, 74, 138, 0.2);
-            outline: none;
         }
 
         /* Submit Button */
         .submit-feedback {
             width: 100%;
-            padding: 16px;
+            padding: 15px;
             background: linear-gradient(to right, var(--success-green), #2f855a);
             color: white;
             border: none;
@@ -682,17 +624,16 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 20px;
+            margin-top: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            font-family: 'Abyssinica SIL', serif;
         }
 
         .submit-feedback:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(56, 161, 105, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(56, 161, 105, 0.3);
         }
 
         /* Success Modal */
@@ -706,14 +647,14 @@
             display: none;
             justify-content: center;
             align-items: center;
-            z-index: 1002;
+            z-index: 2001;
             padding: 15px;
         }
 
         .success-container {
             background: white;
             width: 100%;
-            max-width: 450px;
+            max-width: 400px;
             border-radius: var(--radius-lg);
             overflow: hidden;
             text-align: center;
@@ -722,7 +663,7 @@
         }
 
         .success-icon {
-            font-size: 3.5rem;
+            font-size: 3rem;
             color: var(--success-green);
             margin-bottom: 15px;
         }
@@ -738,7 +679,7 @@
             display: none;
             justify-content: center;
             align-items: center;
-            z-index: 1003;
+            z-index: 2002;
             padding: 15px;
         }
 
@@ -759,13 +700,12 @@
         }
 
         .login-header h2 {
-            font-size: 1.6rem;
+            font-size: 1.3rem;
             margin-bottom: 5px;
-            font-family: 'Abyssinica SIL', serif;
         }
 
         .login-form {
-            padding: 25px;
+            padding: 20px;
         }
 
         .password-toggle-btn {
@@ -785,7 +725,6 @@
             max-width: 1400px;
             margin: 0 auto;
             display: none;
-            width: 100%;
         }
 
         .admin-header {
@@ -793,25 +732,19 @@
             color: white;
             padding: 20px;
             border-radius: var(--radius-lg);
-            margin-bottom: 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 15px;
+            margin-bottom: 20px;
         }
 
         .admin-title h2 {
-            font-size: 1.7rem;
+            font-size: 1.3rem;
             margin-bottom: 8px;
-            font-family: 'Abyssinica SIL', serif;
         }
 
         .admin-controls {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 10px;
-            width: 100%;
+            margin-top: 15px;
         }
 
         .admin-btn {
@@ -823,13 +756,11 @@
             cursor: pointer;
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 8px;
             font-weight: 600;
             transition: all 0.3s ease;
-            font-size: 0.9rem;
-            min-width: 120px;
-            font-family: 'Abyssinica SIL', serif;
+            font-size: 0.85rem;
+            justify-content: center;
         }
 
         .admin-btn:hover {
@@ -840,39 +771,38 @@
         /* Statistics Grid */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 20px;
-            margin-bottom: 35px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
         }
 
         .stat-card {
             background: white;
-            padding: 20px;
+            padding: 15px;
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-md);
-            border-top: 4px solid var(--secondary-blue);
+            border-top: 3px solid var(--secondary-blue);
             transition: all 0.3s ease;
         }
 
         .stat-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             box-shadow: var(--shadow-lg);
         }
 
         .stat-card h3 {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #718096;
             margin-bottom: 8px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            font-family: 'Abyssinica SIL', serif;
         }
 
         .stat-value {
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary-blue);
-            margin: 8px 0;
+            margin: 5px 0;
         }
 
         /* Feedback List */
@@ -881,31 +811,27 @@
             border-radius: var(--radius-lg);
             overflow: hidden;
             box-shadow: var(--shadow-md);
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
         .list-header {
-            padding: 15px 20px;
+            padding: 15px;
             background: linear-gradient(to right, #f8fafc, #edf2f7);
             border-bottom: 2px solid #e2e8f0;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 12px;
         }
 
         .list-header h3 {
             color: var(--primary-blue);
-            font-size: 1.2rem;
-            font-family: 'Abyssinica SIL', serif;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
         }
 
         .department-filter {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 8px;
-            width: 100%;
+            overflow-x: auto;
+            padding-bottom: 5px;
         }
 
         .filter-btn {
@@ -916,14 +842,8 @@
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s ease;
-            font-size: 0.85rem;
-            text-align: center;
-            font-family: 'Abyssinica SIL', serif;
-        }
-
-        .filter-btn:hover {
-            border-color: var(--secondary-blue);
-            background: #f0f5ff;
+            font-size: 0.8rem;
+            white-space: nowrap;
         }
 
         .filter-btn.active {
@@ -933,7 +853,7 @@
         }
 
         .feedback-list {
-            max-height: 600px;
+            max-height: 500px;
             overflow-y: auto;
             padding: 15px;
         }
@@ -941,11 +861,10 @@
         .feedback-item {
             background: white;
             border-radius: var(--radius-md);
-            padding: 20px;
+            padding: 15px;
             margin-bottom: 15px;
             border: 2px solid #e2e8f0;
             transition: all 0.3s ease;
-            position: relative;
         }
 
         .feedback-item:hover {
@@ -954,11 +873,6 @@
         }
 
         .feedback-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 12px;
             margin-bottom: 15px;
             padding-bottom: 15px;
             border-bottom: 1px solid #e2e8f0;
@@ -967,26 +881,29 @@
         .feedback-department {
             background: var(--primary-blue);
             color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
             font-weight: 600;
-            font-family: 'Abyssinica SIL', serif;
+            display: inline-block;
+            margin-bottom: 8px;
         }
 
         .feedback-date {
             color: #718096;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
+            display: block;
         }
 
         .feedback-rating {
             display: flex;
-            gap: 4px;
+            gap: 3px;
+            margin-top: 8px;
         }
 
         .star {
             color: #e2e8f0;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         .star.filled {
@@ -994,21 +911,20 @@
         }
 
         .feedback-content {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .feedback-text {
             margin-bottom: 15px;
             line-height: 1.6;
-            font-size: 1rem;
-            font-family: 'Abyssinica SIL', serif;
+            font-size: 0.95rem;
         }
 
         .feedback-details {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 15px;
             padding: 15px;
             background: #f8fafc;
             border-radius: var(--radius-md);
@@ -1022,17 +938,15 @@
         .detail-label {
             font-size: 0.8rem;
             color: #718096;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
             font-weight: 600;
-            font-family: 'Abyssinica SIL', serif;
         }
 
         .detail-value {
             font-weight: 500;
             color: var(--dark-text);
             word-break: break-word;
-            font-size: 0.95rem;
-            font-family: 'Abyssinica SIL', serif;
+            font-size: 0.9rem;
         }
 
         /* Delete Button */
@@ -1041,14 +955,16 @@
             color: white;
             border: none;
             border-radius: var(--radius-md);
-            padding: 8px 15px;
+            padding: 8px 12px;
             cursor: pointer;
             font-size: 0.85rem;
             display: flex;
             align-items: center;
             gap: 5px;
             transition: all 0.3s ease;
-            font-family: 'Abyssinica SIL', serif;
+            width: 100%;
+            justify-content: center;
+            margin-top: 10px;
         }
 
         .delete-feedback-btn:hover {
@@ -1056,33 +972,26 @@
             transform: translateY(-2px);
         }
 
-        .delete-feedback-btn:disabled {
-            background: #a0aec0;
-            cursor: not-allowed;
-            transform: none;
-        }
-
         /* Attachments */
         .attachments-section {
-            margin-top: 20px;
-            padding-top: 20px;
+            margin-top: 15px;
+            padding-top: 15px;
             border-top: 1px solid #e2e8f0;
         }
 
         .attachments-title {
             font-weight: 600;
             color: var(--primary-blue);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 0.95rem;
-            font-family: 'Abyssinica SIL', serif;
+            font-size: 0.9rem;
         }
 
         .attachments-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             gap: 10px;
         }
 
@@ -1090,53 +999,41 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            padding: 10px 15px;
+            padding: 8px 12px;
             background: white;
             border: 2px solid #e2e8f0;
             border-radius: var(--radius-md);
             transition: all 0.3s ease;
             text-decoration: none;
             color: var(--dark-text);
-            font-size: 0.9rem;
-        }
-
-        .attachment-item:hover {
-            border-color: var(--secondary-blue);
-            background: #f0f5ff;
-            transform: translateY(-2px);
-        }
-
-        .attachment-icon {
-            font-size: 1.3rem;
-            color: var(--secondary-blue);
+            font-size: 0.85rem;
         }
 
         /* Admin Management */
         .admin-management {
             background: white;
             border-radius: var(--radius-lg);
-            padding: 25px;
+            padding: 20px;
             box-shadow: var(--shadow-md);
-            margin-top: 30px;
+            margin-top: 25px;
         }
 
         .management-title {
             color: var(--primary-blue);
             margin-bottom: 20px;
-            font-size: 1.4rem;
-            font-family: 'Abyssinica SIL', serif;
+            font-size: 1.2rem;
         }
 
         .management-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 35px;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 25px;
         }
 
         .management-form {
             background: #f8fafc;
-            padding: 20px;
+            padding: 15px;
             border-radius: var(--radius-md);
             border: 2px solid #e2e8f0;
         }
@@ -1145,13 +1042,13 @@
         .logo-management {
             background: white;
             border-radius: var(--radius-lg);
-            padding: 25px;
+            padding: 20px;
             box-shadow: var(--shadow-md);
-            margin-top: 30px;
+            margin-top: 25px;
         }
 
         .logo-upload-container {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .logo-upload-box {
@@ -1164,18 +1061,13 @@
             margin-bottom: 15px;
         }
 
-        .logo-upload-box:hover {
-            border-color: var(--secondary-blue);
-            background: #f8fafc;
-        }
-
         .logo-preview {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             margin: 15px auto;
             border-radius: 50%;
             overflow: hidden;
-            border: 3px solid #e2e8f0;
+            border: 2px solid #e2e8f0;
             background: #f8fafc;
         }
 
@@ -1196,23 +1088,23 @@
             display: none;
             justify-content: center;
             align-items: center;
-            z-index: 1004;
+            z-index: 2003;
             padding: 15px;
         }
 
         .confirmation-container {
             background: white;
             width: 100%;
-            max-width: 450px;
+            max-width: 400px;
             border-radius: var(--radius-lg);
             overflow: hidden;
             text-align: center;
-            padding: 30px 20px;
+            padding: 25px 20px;
             box-shadow: var(--shadow-lg);
         }
 
         .confirmation-icon {
-            font-size: 3.5rem;
+            font-size: 3rem;
             color: var(--danger-red);
             margin-bottom: 15px;
         }
@@ -1221,87 +1113,48 @@
         .footer {
             background: linear-gradient(135deg, var(--primary-blue) 0%, #0d2b5e 100%);
             color: white;
-            padding: 40px 15px 25px;
-            margin-top: 50px;
-            border-top: 4px solid var(--accent-gold);
-            position: relative;
-        }
-
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-gold), #ffd700, var(--accent-gold));
+            padding: 30px 15px 20px;
+            margin-top: 40px;
+            border-top: 3px solid var(--accent-gold);
         }
 
         .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: 1fr;
+            gap: 25px;
         }
 
         .footer-section h3 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 15px;
             color: var(--accent-gold);
-            position: relative;
             padding-bottom: 8px;
-            font-family: 'Abyssinica SIL', serif;
-        }
-
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 2px;
-            background: var(--accent-gold);
+            border-bottom: 2px solid var(--accent-gold);
         }
 
         .footer-section p {
             margin-bottom: 8px;
-            line-height: 1.7;
-            font-size: 0.9rem;
-            font-family: 'Abyssinica SIL', serif;
-        }
-
-        .footer-section i {
-            color: var(--accent-gold);
-            margin-right: 8px;
-            width: 18px;
+            line-height: 1.6;
+            font-size: 0.85rem;
         }
 
         .social-links {
             display: flex;
-            gap: 12px;
-            margin-top: 20px;
+            gap: 10px;
+            margin-top: 15px;
         }
 
         .social-link {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 36px;
-            height: 36px;
+            width: 35px;
+            height: 35px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             color: white;
             text-decoration: none;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            font-size: 0.9rem;
-        }
-
-        .social-link:hover {
-            background: var(--accent-gold);
-            transform: translateY(-3px) scale(1.1);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
         }
 
         /* Notification */
@@ -1314,14 +1167,13 @@
             color: white;
             border-radius: var(--radius-md);
             box-shadow: var(--shadow-lg);
-            z-index: 10000;
+            z-index: 3000;
             animation: slideInRight 0.3s ease;
             display: flex;
             align-items: center;
             gap: 8px;
-            max-width: 350px;
+            max-width: 300px;
             font-size: 0.9rem;
-            font-family: 'Abyssinica SIL', serif;
         }
 
         .notification.error {
@@ -1337,167 +1189,21 @@
             to { transform: translateX(0); opacity: 1; }
         }
 
-        @keyframes slideOutRight {
-            from { transform: translateX(0); opacity: 1; }
-            to { transform: translateX(100%); opacity: 0; }
-        }
-
         /* Tablet Styles */
         @media (min-width: 768px) {
+            body {
+                padding-top: 80px;
+            }
+            
             .main-header {
-                padding: 18px 30px;
-            }
-            
-            .logo-container {
-                flex-direction: row;
-                gap: 15px;
-            }
-            
-            .logo {
-                width: 80px;
                 height: 80px;
-                font-size: 2rem;
+                padding: 0 8%;
             }
             
-            .office-name h1 {
-                font-size: 1.7rem;
+            .header-scrolled {
+                height: 70px;
             }
             
-            .slogan {
-                font-size: 1.1rem;
-                padding: 10px 20px;
-            }
-            
-            .auth-buttons {
-                flex-direction: row;
-                gap: 15px;
-            }
-            
-            .auth-btn {
-                width: auto;
-                max-width: none;
-                padding: 12px 25px;
-            }
-            
-            .hero-section {
-                padding: 35px 25px;
-            }
-            
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .customer-page {
-                padding: 20px;
-            }
-            
-            .section-title h2 {
-                font-size: 2.2rem;
-            }
-            
-            .departments-grid {
-                gap: 25px;
-            }
-            
-            .admin-controls {
-                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            }
-            
-            .admin-btn {
-                padding: 12px 20px;
-                font-size: 0.95rem;
-            }
-            
-            .department-filter {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            }
-            
-            .footer {
-                padding: 45px 25px 30px;
-            }
-        }
-
-        /* Laptop Styles */
-        @media (min-width: 1024px) {
-            .main-header {
-                padding: 20px 40px;
-            }
-            
-            .logo {
-                width: 90px;
-                height: 90px;
-            }
-            
-            .office-name h1 {
-                font-size: 1.9rem;
-            }
-            
-            .slogan {
-                font-size: 1.2rem;
-            }
-            
-            .auth-btn {
-                padding: 12px 30px;
-            }
-            
-            .hero-section {
-                padding: 40px 30px;
-            }
-            
-            .hero-title {
-                font-size: 2.2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .customer-page {
-                padding: 25px;
-            }
-            
-            .section-title h2 {
-                font-size: 2.5rem;
-            }
-            
-            .departments-grid {
-                gap: 30px;
-            }
-            
-            .admin-controls {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-                gap: 12px;
-            }
-            
-            .admin-btn {
-                padding: 12px 25px;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                gap: 25px;
-            }
-            
-            .department-filter {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 10px;
-            }
-            
-            .footer {
-                padding: 50px 40px 35px;
-            }
-            
-            .footer-content {
-                gap: 40px;
-            }
-        }
-
-        /* Mobile-specific adjustments */
-        @media (max-width: 480px) {
             .logo {
                 width: 60px;
                 height: 60px;
@@ -1508,86 +1214,166 @@
                 font-size: 1.2rem;
             }
             
-            .slogan {
+            .auth-btn {
+                padding: 10px 15px;
                 font-size: 0.9rem;
-                padding: 6px 10px;
+            }
+            
+            .auth-btn h1, .auth-btn h2 {
+                display: inline;
             }
             
             .hero-title {
-                font-size: 1.6rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 0.95rem;
-            }
-            
-            .section-title h2 {
-                font-size: 1.5rem;
-            }
-            
-            .departments-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            
-            .card-header h3 {
-                font-size: 1.3rem;
-            }
-            
-            .department-logo-placeholder {
-                width: 90px;
-                height: 90px;
-            }
-            
-            .voice-btn {
-                min-width: 100%;
-            }
-            
-            .rating-section {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .admin-header {
-                padding: 15px;
-            }
-            
-            .admin-title h2 {
-                font-size: 1.4rem;
-            }
-            
-            .admin-controls {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-            }
-            
-            .stat-card {
-                padding: 15px;
-            }
-            
-            .stat-value {
                 font-size: 1.8rem;
             }
             
-            .feedback-details {
-                grid-template-columns: 1fr;
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .departments-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
             }
             
             .form-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .rating-section {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .admin-controls {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .department-filter {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .feedback-details {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .management-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Desktop Styles */
+        @media (min-width: 1024px) {
+            body {
+                padding-top: 90px;
+            }
+            
+            .main-header {
+                height: 90px;
+                padding: 0 10%;
+            }
+            
+            .header-scrolled {
+                height: 75px;
+            }
+            
+            .office-name h1 {
+                font-size: 1.4rem;
+            }
+            
+            .slogan {
+                display: block;
+                font-size: 0.9rem;
+                color: var(--secondary-blue);
+                margin-top: 3px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .departments-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .form-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .rating-section {
+                grid-template-columns: repeat(5, 1fr);
+            }
+            
+            .admin-controls {
+                grid-template-columns: repeat(5, 1fr);
+            }
+            
+            .department-filter {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Large Desktop */
+        @media (min-width: 1200px) {
+            .main-header {
+                padding: 0 12%;
+            }
+            
+            .hero-section, .customer-page, .admin-page {
+                padding: 20px;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* Small Mobile */
+        @media (max-width: 360px) {
+            .departments-grid {
                 grid-template-columns: 1fr;
             }
             
-            .attachments-list {
+            .admin-controls {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .department-filter {
+                grid-template-columns: 1fr;
+            }
+            
+            .feedback-details {
                 grid-template-columns: 1fr;
             }
         }
 
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
         }
 
         ::-webkit-scrollbar-track {
@@ -1596,17 +1382,38 @@
 
         ::-webkit-scrollbar-thumb {
             background: var(--secondary-blue);
-            border-radius: 4px;
+            border-radius: 3px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
             background: var(--primary-blue);
         }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+        
+        .mb-10 {
+            margin-bottom: 10px;
+        }
+        
+        .mb-20 {
+            margin-bottom: 20px;
+        }
+        
+        .mt-10 {
+            margin-top: 10px;
+        }
+        
+        .mt-20 {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
-    <!-- Main Header - Not fixed when scrolling -->
-    <header class="main-header">
+    <!-- Main Header -->
+    <header class="main-header" id="mainHeader">
         <div class="header-content">
             <div class="logo-container">
                 <div class="logo" id="mainLogo">
@@ -1615,34 +1422,30 @@
                 <div class="office-name">
                     <h1>በኮልፌ ቀራኒዮ ክፍለ ከተማ የግንባታ ፈቃድ እና ቁጥጥር ጽ/ቤት</h1>
                     <div class="slogan">የደንበኞቻችን አስተያየት፣ ቅሬታ እና ጥያቄ ማቅረቢያ ድህረ-ገጽ</div>
-                    <div class="slogan">እኛ ከእርስዎ ሃሳብ እና አስተያየት ወስደን ፤ አስተካክለን ለማገልገል ዝግጁ ነን!!!</div>
                 </div>
             </div>
             
             <div class="header-controls">
-                <div class="auth-buttons">
-                    <button class="auth-btn customer-view hidden" id="showCustomerView">
-                        <i class="fas fa-users"></i> ወደ ደንበኞቻችን ገጽ ይመለሱ
-                    </button>
-                    <button class="auth-btn admin-login" id="showAdminLogin">
-                        <i class="fas fa-user-shield"></i> ወደ አስተዳዳሪዎች ገጽ ይግቡ
-                    </button>
-                </div>
+                <button class="auth-btn customer-view" id="showCustomerView">
+                    <i class="fas fa-users"></i>
+                    <span class="desktop-text">ደንበኞች</span>
+                </button>
+                <button class="auth-btn admin-login" id="showAdminLogin">
+                    <i class="fas fa-user-shield"></i>
+                    <span class="desktop-text">አስተዳደር</span>
+                </button>
             </div>
         </div>
     </header>
 
     <!-- Customer Feedback Page -->
     <main id="customerPage" class="customer-page">
-        <!-- Hero Section -->
         <section class="hero-section">
             <h1 class="hero-title">እንኳን ወደ አስተያየት መስጫ ድህረ ገጽ በደህና መጡ!!!</h1>
             <p class="hero-subtitle">ስለ አገልግሎታችን አስተያየት፣ ቅሬታዎች እና ጥያቄዎችዎን ለተሻለ አገልግሎት እንድንበረት ያጋሩን።</p>
-            <p class="hero-subtitle">የእርስዎ አስተያየት አገልግሎታችንን ለማሻሻል እና ማህበረሰባችንን በተሻለ ሁኔታ ለመገልገል ይረዳናል።</p>
-            <p class="hero-subtitle">እባከዎት በትክክል አስተያየት፣ ቅሬት እና ጥያቄ የሚያቀርቡበትን ቡድን በትትክክል ይምረጡ።</p>
+            <p class="hero-subtitle">እባክዎት በትክክል አስተያየት፣ ቅሬት እና ጥያቄ የሚያቀርቡበትን ቡድን በትትክክል ይምረጡ።</p>
         </section>
 
-        <!-- Departments Section -->
         <section class="departments-section">
             <div class="section-title">
                 <h2>ለየትኛው የጽ/ቤት የስራ ክፍል ስለ አገልግሎቱ አስተያየት፣ ቅሬታ እና ጥያቄ ሊያቀርቡ ፈለጉ?</h2>
@@ -1652,120 +1455,96 @@
                 <!-- Deputy Office Head Department -->
                 <div class="department-card" data-dept="deputy-office">
                     <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
+                        <div class="card-icon"><i class="fas fa-user-tie"></i></div>
                         <h3>የጽ/ቤት ኃላፊ</h3>
                     </div>
                     <div class="card-body">
                         <div class="department-logo-container">
-                            <div class="department-logo-placeholder" id="logo-deputy-office">
-                                <!-- Logo will be added by admin -->
-                            </div>
+                            <div class="department-logo-placeholder" id="logo-deputy-office"></div>
                         </div>
                         <h2>ወ/ሪ ሰብለ ፉርጋሳ</h2>
-                        <p>ለጽ/ቤት ኃላፊ በቀጥታ አስተያየት፣ ቅሬታ ወይም ጥያቄ ያቀርቡ። ይህ ክፍል ለሚከተሉት የስራ ክፍሎች አጠቃላይ አስተዳደር እና ቁጥጥርን ያካትታል።</p>
-                        <button class="feedback-btn">አስተያየትዎን፣ ቅሬታዎን ወይም ጥያቄዎን እዚሁ ተጭነው ይስጡ</button>
+                        <p>ለጽ/ቤት ኃላፊ በቀጥታ አስተያየት፣ ቅሬታ ወይም ጥያቄ ያቀርቡ።</p>
+                        <button class="feedback-btn">አስተያየትዎን ይስጡ</button>
                     </div>
                 </div>
 
                 <!-- Construction Permit Department -->
                 <div class="department-card" data-dept="construction-permit">
                     <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-file-contract"></i>
-                        </div>
+                        <div class="card-icon"><i class="fas fa-file-contract"></i></div>
                         <h3>የግንባታ ፈቃድ ቡድን</h3>
                     </div>
                     <div class="card-body">
                         <div class="department-logo-container">
-                            <div class="department-logo-placeholder" id="logo-construction-permit">
-                                <!-- Logo will be added by admin -->
-                            </div>
+                            <div class="department-logo-placeholder" id="logo-construction-permit"></div>
                         </div>
                         <h2>አቶ ሐብታሙ ለሜሳ</h2>
-                        <p>ስለ አዲስ ግንባታ ፈቃድ ሂደቶች ፣ ስለ እድሳት፣ ጊዜያዊ ግንባት፣ ፕላን ስምምነት እንዲሁም ልዩ ልዩ የግንባታ ፈቃድ ሂደቶች እና ማመልከቻዎች አስተያየት፣ ቅሬታ ወይም ጥያቄ ያስገቡ።</p>
-                        <button class="feedback-btn">አስተያየትዎን፣ ቅሬታዎን ወይም ጥያቄዎን እዚሁ ተጭነው ይስጡ</button>
+                        <p>ስለ አዲስ ግንባታ ፈቃድ ሂደቶች አስተያየት፣ ቅሬታ ወይም ጥያቄ ያስገቡ።</p>
+                        <button class="feedback-btn">አስተያየትዎን ይስጡ</button>
                     </div>
                 </div>
 
                 <!-- Construction Control Department -->
                 <div class="department-card" data-dept="construction-control">
                     <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-hard-hat"></i>
-                        </div>
-                        <h3>የግንባታ ክትትል እና ቁጥጥር ቡድን</h3>
+                        <div class="card-icon"><i class="fas fa-hard-hat"></i></div>
+                        <h3>የግንባታ ክትትል ቡድን</h3>
                     </div>
                     <div class="card-body">
                         <div class="department-logo-container">
-                            <div class="department-logo-placeholder" id="logo-construction-control">
-                                <!-- Logo will be added by admin -->
-                            </div>
+                            <div class="department-logo-placeholder" id="logo-construction-control"></div>
                         </div>
                         <h2>አቶ ብሩክ ውብሸት</h2>
-                        <p>ስለ ግንባታ ክትትል እና ቁጥጥር ፣ ሳይት ሪፖርት፣ የግንባታ ማስጀመሪያ እና የህንጻ ደህንነት ደንቦች አስተያየት ይስጡ።</p>
-                        <button class="feedback-btn">አስተያየትዎን፣ ቅሬታዎን ወይም ጥያቄዎን እዚሁ ተጭነው ይስጡ</button>
+                        <p>ስለ ግንባታ ክትትል እና ቁጥጥር አስተያየት ይስጡ።</p>
+                        <button class="feedback-btn">አስተያየትዎን ይስጡ</button>
                     </div>
                 </div>
 
                 <!-- Building Inspiration Department -->
                 <div class="department-card" data-dept="building-inspiration">
                     <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <h3>የህንጻ መጠቀሚያ ፈቃድ እና ኢንስፔክሺን ቡድን</h3>
+                        <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
+                        <h3>የህንጻ መጠቀሚያ ፈቃድ ቡድን</h3>
                     </div>
                     <div class="card-body">
                         <div class="department-logo-container">
-                            <div class="department-logo-placeholder" id="logo-building-inspiration">
-                                <!-- Logo will be added by admin -->
-                            </div>
+                            <div class="department-logo-placeholder" id="logo-building-inspiration"></div>
                         </div>
                         <h2>አቶ ቦጋለ ታደሰ</h2>
-                        <p>ለህንጽዎ መጠቀሚያ ፈቃድ፣ የአገልግሎት ለውጥ በተመለከተ አስተያይተዎን ይስጡ</p>
-                        <button class="feedback-btn">አስተያየትዎን፣ ቅሬታዎን ወይም ጥያቄዎን እዚሁ ተጭነው ይስጡ</button>
+                        <p>ለህንጽዎ መጠቀሚያ ፈቃድ አስተያይተዎን ይስጡ</p>
+                        <button class="feedback-btn">አስተያየትዎን ይስጡ</button>
                     </div>
                 </div>
 
                 <!-- Outdoor Advertisement Department -->
                 <div class="department-card" data-dept="outdoor-advertisement">
                     <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-ad"></i>
-                        </div>
-                        <h3>የውጭ ማስታወቂያ ፈቃድ አሰጣጥ እና ቁጥጥር ቡድን</h3>
+                        <div class="card-icon"><i class="fas fa-ad"></i></div>
+                        <h3>የውጭ ማስታወቂያ ፈቃድ ቡድን</h3>
                     </div>
                     <div class="card-body">
                         <div class="department-logo-container">
-                            <div class="department-logo-placeholder" id="logo-outdoor-advertisement">
-                                <!-- Logo will be added by admin -->
-                            </div>
+                            <div class="department-logo-placeholder" id="logo-outdoor-advertisement"></div>
                         </div>
                         <h2>አቶ ዩሐንስ ሙሉዩ</h2>
-                        <p>ስለ ውጭ ማስታወቂያ ፈቃዶች እና ቁጥጥር፣ የውጭ ማስታወቂያ የሚሆን ቦታ መረጣ ፣ ደንቦች እና መመሪያዎች አስተያየት።</p>
-                        <button class="feedback-btn">አስተያየትዎን፣ ቅሬታዎን ወይም ጥያቄዎን እዚሁ ተጭነው ይስጡ</button>
+                        <p>ስለ ውጭ ማስታወቂያ ፈቃዶች እና ቁጥጥር አስተያየት።</p>
+                        <button class="feedback-btn">አስተያየትዎን ይስጡ</button>
                     </div>
                 </div>
 
                 <!-- Documentation Department -->
                 <div class="department-card" data-dept="documentation">
                     <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-archive"></i>
-                        </div>
+                        <div class="card-icon"><i class="fas fa-archive"></i></div>
                         <h3>መረጃ እና ዶክመንቴሺን</h3>
                     </div>
                     <div class="card-body">
                         <div class="department-logo-container">
-                            <div class="department-logo-placeholder" id="logo-documentation">
-                                <!-- Logo will be added by admin -->
-                            </div>
+                            <div class="department-logo-placeholder" id="logo-documentation"></div>
                         </div>
                         <h2>አቶ አብዱልፈታ ሰይድ</h2>
-                        <p>ስለ የሰነድ ሂደት ፣ ማህደረ ሰነድ እና የመረጃ አሰጣጥ አገልግሎቶች አስተያየት ይስጡ።</p>
-                        <button class="feedback-btn">አስተያየትዎን፣ ቅሬታዎን ወይም ጥያቄዎን እዚሁ ተጭነው ይስጡ</button>
+                        <p>ስለ የሰነድ ሂደት አገልግሎቶች አስተያየት ይስጡ።</p>
+                        <button class="feedback-btn">አስተያየትዎን ይስጡ</button>
                     </div>
                 </div>
             </div>
@@ -1777,9 +1556,9 @@
         <div class="admin-header">
             <div class="admin-title">
                 <h2>የአስተዳዳሪ ዳሽቦርድ</h2>
-                <div style="margin-top: 10px; font-size: 0.85rem; opacity: 0.9;">
-                    አስተዳዳሪዎች: <span id="loggedInAdmin">-</span>
-                    <span id="adminRoleIndicator" style="margin-left: 10px; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem;"></span>
+                <div style="margin-top: 5px; font-size: 0.85rem; opacity: 0.9;">
+                    አስተዳዳሪ: <span id="loggedInAdmin">-</span>
+                    <span id="adminRoleIndicator" style="margin-left: 8px; padding: 2px 6px; border-radius: 10px; font-size: 0.75rem;"></span>
                 </div>
             </div>
             
@@ -1788,13 +1567,13 @@
                     <i class="fas fa-sync-alt"></i> አድስ
                 </button>
                 <button class="admin-btn" id="manageAdminsBtn">
-                    <i class="fas fa-user-shield"></i> አስተዳዳሪዎችን አስተዳደር
+                    <i class="fas fa-user-shield"></i> አስተዳዳሪዎች
                 </button>
                 <button class="admin-btn" id="manageLogosBtn">
-                    <i class="fas fa-image"></i> ሎጎዎችን አስተዳደር
+                    <i class="fas fa-image"></i> ሎጎዎች
                 </button>
                 <button class="admin-btn" id="exportDataBtn">
-                    <i class="fas fa-download"></i> መረጃዎን ይላኩ
+                    <i class="fas fa-download"></i> ላክ
                 </button>
                 <button class="admin-btn" id="logoutBtn">
                     <i class="fas fa-sign-out-alt"></i> ውጣ
@@ -1814,11 +1593,11 @@
                 <div class="department-filter">
                     <button class="filter-btn active" data-department="all">ሁሉም</button>
                     <button class="filter-btn" data-department="deputy-office">የጽ/ቤት ኃላፊ</button>
-                    <button class="filter-btn" data-department="construction-permit">የግንባታ ፈቃድ ቡድን</button>
-                    <button class="filter-btn" data-department="construction-control">የግንባታ ክትትል እና ቁጥጥር ቡድን</button>
-                    <button class="filter-btn" data-department="building-inspiration">የህንጻ መጠቀሚያ ፈቃድ እና ኢንስፔክሽን ቡድን</button>
-                    <button class="filter-btn" data-department="outdoor-advertisement">የውጭ ማስታወቂያ ፈቃድ እና ቁጥጥር ቡድን</button>
-                    <button class="filter-btn" data-department="documentation">መረጃ እና ዶክመንቴሺን ቡድን</button>
+                    <button class="filter-btn" data-department="construction-permit">ግንባታ ፈቃድ</button>
+                    <button class="filter-btn" data-department="construction-control">ግንባታ ቁጥጥር</button>
+                    <button class="filter-btn" data-department="building-inspiration">ህንጻ መጠቀሚያ</button>
+                    <button class="filter-btn" data-department="outdoor-advertisement">ውጭ ማስታወቂያ</button>
+                    <button class="filter-btn" data-department="documentation">መረጃ</button>
                 </div>
             </div>
             <div class="feedback-list" id="adminFeedbackList">
@@ -1847,8 +1626,7 @@
                             <input type="password" id="confirmPassword" class="form-input" placeholder="የይለፍ ቃል ያረጋግጡ" required>
                         </div>
                         <button type="submit" class="submit-feedback">
-                            <i class="fas fa-user-plus"></i>
-                            አስተዳዳሪ ይጨምሩ
+                            <i class="fas fa-user-plus"></i> አስተዳዳሪ ይጨምሩ
                         </button>
                     </form>
                 </div>
@@ -1869,14 +1647,13 @@
                             <input type="password" id="confirmNewPassword" class="form-input" placeholder="አዲሱን የይለፍ ቃል ያረጋግጡ" required>
                         </div>
                         <button type="submit" class="submit-feedback">
-                            <i class="fas fa-sync-alt"></i>
-                            የይለፍ ቃልዎን ይቀይሩ
+                            <i class="fas fa-sync-alt"></i> የይለፍ ቃልዎን ይቀይሩ
                         </button>
                     </form>
                 </div>
             </div>
 
-            <div style="margin-top: 30px;">
+            <div style="margin-top: 25px;">
                 <h4><i class="fas fa-users"></i> የአስተዳዳሪዎች ዝርዝር</h4>
                 <div style="background: #f8fafc; border-radius: var(--radius-md); padding: 15px; margin-top: 15px;">
                     <div id="adminList">
@@ -1888,7 +1665,7 @@
 
         <!-- Logo Management Section -->
         <div class="logo-management" id="logoManagementSection" style="display: none;">
-            <h3 class="management-title">የስራ ክፍል እና ሎጎዎችን አስተዳደር</h3>
+            <h3 class="management-title">የስራ ክፍል ሎጎዎችን አስተዳደር</h3>
             
             <div class="management-grid">
                 <!-- Deputy Office Logo -->
@@ -1898,17 +1675,11 @@
                         <i class="fas fa-cloud-upload-alt"></i>
                         <p>ሎጎ ፋይል ይጎትቱ ወይም ለመጫን ይጫኑ</p>
                         <input type="file" class="file-input" id="logoInputDeputyOffice" accept="image/*">
-                        <button type="button" class="feedback-btn" style="margin-top: 10px; width: auto; padding: 8px 20px;" onclick="document.getElementById('logoInputDeputyOffice').click()">
+                        <button type="button" class="feedback-btn" style="margin-top: 10px; width: auto; padding: 8px 15px;" onclick="document.getElementById('logoInputDeputyOffice').click()">
                             <i class="fas fa-plus"></i> ሎጎ ይምረጡ
                         </button>
                     </div>
-                    <div class="logo-preview" id="logoPreviewDeputyOffice">
-                        <!-- Logo preview will appear here -->
-                    </div>
-                    <div class="file-info">
-                        <p>የሚደገፉ ፎርማቶች: JPG, PNG, SVG, GIF</p>
-                        <p>ማክሰኞ: ሎጎው ከአስተያየት ቁልፍ በታች ይታያል</p>
-                    </div>
+                    <div class="logo-preview" id="logoPreviewDeputyOffice"></div>
                 </div>
 
                 <!-- Construction Permit Logo -->
@@ -1918,81 +1689,71 @@
                         <i class="fas fa-cloud-upload-alt"></i>
                         <p>ሎጎ ፋይል ይጎትቱ ወይም ለመጫን ይጫኑ</p>
                         <input type="file" class="file-input" id="logoInputConstructionPermit" accept="image/*">
-                        <button type="button" class="feedback-btn" style="margin-top: 10px; width: auto; padding: 8px 20px;" onclick="document.getElementById('logoInputConstructionPermit').click()">
+                        <button type="button" class="feedback-btn" style="margin-top: 10px; width: auto; padding: 8px 15px;" onclick="document.getElementById('logoInputConstructionPermit').click()">
                             <i class="fas fa-plus"></i> ሎጎ ይምረጡ
                         </button>
                     </div>
-                    <div class="logo-preview" id="logoPreviewConstructionPermit">
-                        <!-- Logo preview will appear here -->
-                    </div>
+                    <div class="logo-preview" id="logoPreviewConstructionPermit"></div>
                 </div>
 
                 <!-- Construction Control Logo -->
                 <div class="logo-upload-container">
-                    <h4><i class="fas fa-hard-hat"></i> የግንባታ ክትትል እና ቁጥጥር ቡድን ሎጎ</h4>
+                    <h4><i class="fas fa-hard-hat"></i> የግንባታ ክትትል ቡድን ሎጎ</h4>
                     <div class="logo-upload-box" id="logoUploadConstructionControl">
                         <i class="fas fa-cloud-upload-alt"></i>
                         <p>ሎጎ ፋይል ይጎትቱ ወይም ለመጫን ይጫኑ</p>
                         <input type="file" class="file-input" id="logoInputConstructionControl" accept="image/*">
-                        <button type="button" class="feedback-btn" style="margin-top: 10px; width: auto; padding: 8px 20px;" onclick="document.getElementById('logoInputConstructionControl').click()">
+                        <button type="button" class="feedback-btn" style="margin-top: 10px; width: auto; padding: 8px 15px;" onclick="document.getElementById('logoInputConstructionControl').click()">
                             <i class="fas fa-plus"></i> ሎጎ ይምረጡ
                         </button>
                     </div>
-                    <div class="logo-preview" id="logoPreviewConstructionControl">
-                        <!-- Logo preview will appear here -->
-                    </div>
+                    <div class="logo-preview" id="logoPreviewConstructionControl"></div>
                 </div>
 
                 <!-- Building Inspiration Logo -->
                 <div class="logo-upload-container">
-                    <h4><i class="fas fa-lightbulb"></i> የህንጻ መጠቀሚያ እና ኢንስፔክሽን ቡድን ሎጎ</h4>
+                    <h4><i class="fas fa-lightbulb"></i> የህንጻ መጠቀሚያ ቡድን ሎጎ</h4>
                     <div class="logo-upload-box" id="logoUploadBuildingInspiration">
                         <i class="fas fa-cloud-upload-alt"></i>
                         <p>ሎጎ ፋይል ይጎትቱ ወይም ለመጫን ይጫኑ</p>
                         <input type="file" class="file-input" id="logoInputBuildingInspiration" accept="image/*">
-                        <button type="button" class="feedback-btn" style="margin-top: 10px; width: auto; padding: 8px 20px;" onclick="document.getElementById('logoInputBuildingInspiration').click()">
+                        <button type="button" class="feedback-btn" style="margin-top: 10px; width: auto; padding: 8px 15px;" onclick="document.getElementById('logoInputBuildingInspiration').click()">
                             <i class="fas fa-plus"></i> ሎጎ ይምረጡ
                         </button>
                     </div>
-                    <div class="logo-preview" id="logoPreviewBuildingInspiration">
-                        <!-- Logo preview will appear here -->
-                    </div>
+                    <div class="logo-preview" id="logoPreviewBuildingInspiration"></div>
                 </div>
 
                 <!-- Outdoor Advertisement Logo -->
                 <div class="logo-upload-container">
-                    <h4><i class="fas fa-ad"></i> የውጭ ማስታወቂያ ፈቃድ እና ቁጥጥር ቡድን ሎጎ</h4>
+                    <h4><i class="fas fa-ad"></i> የውጭ ማስታወቂያ ቡድን ሎጎ</h4>
                     <div class="logo-upload-box" id="logoUploadOutdoorAdvertisement">
                         <i class="fas fa-cloud-upload-alt"></i>
                         <p>ሎጎ ፋይል ይጎትቱ ወይም ለመጫን ይጫኑ</p>
                         <input type="file" class="file-input" id="logoInputOutdoorAdvertisement" accept="image/*">
-                        <button type="button" class="feedback-btn" style="margin-top: 10px; width: auto; padding: 8px 20px;" onclick="document.getElementById('logoInputOutdoorAdvertisement').click()">
+                        <button type="button" class="feedback-btn" style="margin-top: 10px; width: auto; padding: 8px 15px;" onclick="document.getElementById('logoInputOutdoorAdvertisement').click()">
                             <i class="fas fa-plus"></i> ሎጎ ይምረጡ
                         </button>
                     </div>
-                    <div class="logo-preview" id="logoPreviewOutdoorAdvertisement">
-                        <!-- Logo preview will appear here -->
-                    </div>
+                    <div class="logo-preview" id="logoPreviewOutdoorAdvertisement"></div>
                 </div>
 
                 <!-- Documentation Logo -->
                 <div class="logo-upload-container">
-                    <h4><i class="fas fa-archive"></i> መረጃ እና ዶክመንቴሺን ቡድን ሎጎ</h4>
+                    <h4><i class="fas fa-archive"></i> መረጃ ቡድን ሎጎ</h4>
                     <div class="logo-upload-box" id="logoUploadDocumentation">
                         <i class="fas fa-cloud-upload-alt"></i>
                         <p>ሎጎ ፋይል ይጎትቱ ወይም ለመጫን ይጫኑ</p>
                         <input type="file" class="file-input" id="logoInputDocumentation" accept="image/*">
-                        <button type="button" class="feedback-btn" style="margin-top: 10px; width: auto; padding: 8px 20px;" onclick="document.getElementById('logoInputDocumentation').click()">
+                        <button type="button" class="feedback-btn" style="margin-top: 10px; width: auto; padding: 8px 15px;" onclick="document.getElementById('logoInputDocumentation').click()">
                             <i class="fas fa-plus"></i> ሎጎ ይምረጡ
                         </button>
                     </div>
-                    <div class="logo-preview" id="logoPreviewDocumentation">
-                        <!-- Logo preview will appear here -->
-                    </div>
+                    <div class="logo-preview" id="logoPreviewDocumentation"></div>
                 </div>
             </div>
             
-            <button class="submit-feedback" style="margin-top: 25px;" onclick="saveAllLogos()">
+            <button class="submit-feedback" style="margin-top: 20px;" onclick="saveAllLogos()">
                 <i class="fas fa-save"></i> ሁሉንም ሎጎዎች አስቀምጥ
             </button>
         </div>
@@ -2003,13 +1764,12 @@
         <div class="feedback-container">
             <div class="feedback-header">
                 <div>
-                    <h3 id="modalTitle">የአስተያየት፣ ቅሬታ እና ጥያቄ መሙያ ቅጽ</h3>
+                    <h3 id="modalTitle">የአስተያየት መሙያ ቅጽ</h3>
                 </div>
                 <button class="close-modal" id="closeModal">&times;</button>
             </div>
             <div class="feedback-body">
                 <form id="feedbackForm">
-                    <!-- Personal Information -->
                     <div class="form-section">
                         <h4><i class="fas fa-user"></i> የግል መረጃ</h4>
                         <div class="form-grid">
@@ -2028,7 +1788,7 @@
                             <div class="form-group">
                                 <label for="woreda" class="required">ወረዳ</label>
                                 <select class="woreda-select" id="woreda" required>
-                                    <option value=""> እባከዎን ወረዳዎን ይምረጡ </option>
+                                    <option value="">ወረዳዎን ይምረጡ</option>
                                     <option value="woreda-1">ወረዳ 01</option>
                                     <option value="woreda-2">ወረዳ 02</option>
                                     <option value="woreda-3">ወረዳ 03</option>
@@ -2046,51 +1806,36 @@
                         </div>
                     </div>
 
-                    <!-- Feedback Content -->
                     <div class="form-section">
                         <h4><i class="fas fa-comment-alt"></i> አስተያየትዎ <span class="required">*</span></h4>
-                        <div class="textarea-container">
-                            <textarea class="feedback-textarea" id="feedbackText" 
-                                      placeholder="አስተያየትዎን እዚህ ይፃፉ..." 
-                                      required></textarea>
-                        </div>
+                        <textarea class="feedback-textarea" id="feedbackText" placeholder="አስተያየትዎን እዚህ ይፃፉ..." required></textarea>
                         <div class="voice-controls">
                             <button type="button" class="voice-btn" id="voiceAmharicBtn">
-                                <i class="fas fa-microphone"></i>
-                                በአማርኛ ሪኮርድ በማድረግ ይላኩ
+                                <i class="fas fa-microphone"></i> በድምፅ ላክ
                             </button>
                             <button type="button" class="voice-btn" id="stopRecordingBtn" style="display: none;">
-                                <i class="fas fa-stop-circle"></i>
-                                መቅዳት አቁሙ
+                                <i class="fas fa-stop-circle"></i> አቁም
                             </button>
                         </div>
                     </div>
 
-                    <!-- Document Upload -->
                     <div class="form-section">
-                        <h4><i class="fas fa-paperclip"></i> ተጨማሪ ሰነዶችን ማያያዝ ከፈለጉ እዚህ ያስቀምጡ (አማራጭ)</h4>
+                        <h4><i class="fas fa-paperclip"></i> ተጨማሪ ሰነዶች (አማራጭ)</h4>
                         <div class="file-upload-container">
                             <div class="file-upload-box" id="fileUploadBox">
                                 <i class="fas fa-cloud-upload-alt"></i>
-                                <p>ፋይሎችን እዚህ ይጎትቱ ወይም ለመጫን ይጫኑ</p>
-                                <input type="file" class="file-input" id="fileInput" 
-                                       accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.mp3,.wav,.m4a" multiple>
-                                <button type="button" class="feedback-btn" style="margin-top: 10px; width: auto; padding: 8px 20px;" onclick="document.getElementById('fileInput').click()">
+                                <p>ፋይሎችን ይጎትቱ ወይም ይጫኑ</p>
+                                <input type="file" class="file-input" id="fileInput" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.mp3,.wav,.m4a" multiple>
+                                <button type="button" class="feedback-btn" style="margin-top: 10px; width: auto; padding: 8px 15px;" onclick="document.getElementById('fileInput').click()">
                                     <i class="fas fa-plus"></i> ፋይሎችን ይምረጡ
                                 </button>
                             </div>
-                            <div class="file-info">
-                                <p>የሚደገፉ ፎርማቶች: PDF፣ ምስሎች (JPG፣ PNG)፣ የWord ሰነዶች፣ ድምጽ (MP3፣ WAV፣ M4A)</p>
-                            </div>
-                            <div class="file-list" id="fileList">
-                                <!-- Files will be listed here -->
-                            </div>
+                            <div class="file-list" id="fileList"></div>
                         </div>
                     </div>
 
-                    <!-- Rating -->
                     <div class="form-section">
-                        <h4><i class="fas fa-star"></i> ከዚህ ቀደም የሰጠንዎት የአገልግሉት ደረጃ በምን ይፈርጁታል <span class="required">*</span></h4>
+                        <h4><i class="fas fa-star"></i> የአገልግሉት ደረጃ <span class="required">*</span></h4>
                         <div class="rating-section">
                             <button type="button" class="rating-btn" data-rating="1">ደካማ</button>
                             <button type="button" class="rating-btn" data-rating="2">አማካኝ</button>
@@ -2101,19 +1846,8 @@
                         <input type="hidden" id="selectedRating" value="3" required>
                     </div>
 
-                    <!-- Additional Information -->
-                    <div class="form-section">
-                        <h4><i class="fas fa-info-circle"></i> ተጨማሪ መረጃ</h4>
-                        <div class="form-group">
-                            <label for="additionalInfo">እባክዎትን ሌላ አስተያየቶች ወይም ምክሮች ካልዎት ያጋሩን?</label>
-                            <textarea class="feedback-textarea" id="additionalInfo" 
-                                      placeholder="ለመጋራት የሚፈልጉት ሌላ መረጃ..."></textarea>
-                        </div>
-                    </div>
-
                     <button type="submit" class="submit-feedback">
-                        <i class="fas fa-paper-plane"></i>
-                        አስተያየትዎን፣ ቅሬታዎን ወይም ጥያቂዎን ይላኩ!!!
+                        <i class="fas fa-paper-plane"></i> አስተያየትዎን ይላኩ
                     </button>
                 </form>
             </div>
@@ -2127,11 +1861,8 @@
                 <i class="fas fa-check-circle"></i>
             </div>
             <h2>እናመሰግናለን!</h2>
-            <p>አስተያየትዎ በተሳካ ሁኔታ ቀርቧል ከልብ እናመሰግነዎታለን !!!</p>
-            <p>በቅንንነት ወስደን አገልግሎታችንን ለማሻሻል እንጠቀምበታለን።</p>
-            <button class="feedback-btn" onclick="closeSuccessModal()" style="margin-top: 20px;">
-                ዝጋ
-            </button>
+            <p>አስተያየትዎ በተሳካ ሁኔታ ቀርቧል!</p>
+            <button class="feedback-btn" onclick="closeSuccessModal()" style="margin-top: 20px;">ዝጋ</button>
         </div>
     </div>
 
@@ -2156,7 +1887,6 @@
                 <button type="submit" class="submit-feedback" style="margin-top: 10px;">
                     <i class="fas fa-sign-in-alt"></i> ይግቡ
                 </button>
-                <!-- REMOVED: Default admin credentials display section -->
             </form>
         </div>
     </div>
@@ -2168,13 +1898,13 @@
                 <i class="fas fa-exclamation-triangle"></i>
             </div>
             <h2>አስተያየት ለመሰረዝ እርግጠኛ ነዎት?</h2>
-            <p id="confirmationMessage">ይህን አስተያየት ለመሰረዝ እርግጠኛ ነዎት? ይህ ተግባር መቀለብ የለበትም።</p>
-            <div style="display: flex; gap: 12px; margin-top: 20px; flex-direction: column;">
-                <button class="feedback-btn" id="confirmDeleteBtn" style="background: var(--danger-red);">
-                    <i class="fas fa-trash"></i> አዎ፣ ሰርዝ
+            <p id="confirmationMessage">ይህን አስተያየት ለመሰረዝ እርግጠኛ ነዎት?</p>
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button class="feedback-btn" id="confirmDeleteBtn" style="background: var(--danger-red); flex: 1;">
+                    <i class="fas fa-trash"></i> አዎ
                 </button>
-                <button class="feedback-btn" id="cancelDeleteBtn" style="background: var(--secondary-blue);">
-                    <i class="fas fa-times"></i> አይ፣ ዝጋ
+                <button class="feedback-btn" id="cancelDeleteBtn" style="background: var(--secondary-blue); flex: 1;">
+                    <i class="fas fa-times"></i> አይ
                 </button>
             </div>
         </div>
@@ -2185,19 +1915,16 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>በኮልፌ ቀራኒዮ ክፍለ ከተማ የግንባታ ፈቃድ እና ቁጥጥር ጽ/ቤት</h3>
-                <p><i class="fas fa-map-marker-alt"></i> አድራሻ: በኮልፌ ቀራኒዮ ክፍለ ከተማ ህንጻ, የመጀመሪያ ፎቅ በስተቀኝ በኩል</p>
+                <p><i class="fas fa-map-marker-alt"></i> አድራሻ: በኮልፌ ቀራኒዮ ክፍለ ከተማ ህንጻ</p>
                 <p><i class="fas fa-phone"></i> ስልክ: +251 923 562 131</p>
                 <p><i class="fas fa-envelope"></i> ኢሜይል: kolfi.construction@ethiomail.com</p>
-                <p><i class="fas fa-clock"></i> የአገልግሎት ቀን: ሰኞ-ቅዳሜ: 2:30 - 11:30 (@local time)</p>
-                <p><i class="fas fa-user-tie"></i> የጽ/ቤት ኃላፊ: ወ/ሮ ሰብለ ፉርጋሳ</p>
+                <p><i class="fas fa-clock"></i> የአገልግሎት ቀን: ሰኞ-ቅዳሜ: 2:30 - 11:30</p>
             </div>
             
             <div class="footer-section">
                 <h3>ለተጨማሪ መረጃ</h3>
                 <p><i class="fab fa-telegram"></i> ቴሌግራም: @Kolfyconstraction</p>
                 <p><i class="fas fa-globe"></i> ድረ-ገጽ: www.kolficonstruction.gov.et</p>
-                <p><i class="fas fa-map"></i> መቀመጪያ: ኮልፌ ቀራኒዮ ክፍለ ከተማ አስተዳድር ሕንፃ</p>
-                <p><i class="fas fa-file-alt"></i> የአገልግሎት ዓይነቶች: የግንባታ ፈቃድ፣ የቁጥጥር አገልግሎት፣ የማስታወቂያ ፈቃድ</p>
                 <div class="social-links">
                     <a href="https://t.me/Kolfyconstraction" target="_blank" class="social-link">
                         <i class="fab fa-telegram"></i>
@@ -2208,33 +1935,25 @@
                     <a href="#" class="social-link">
                         <i class="fab fa-twitter"></i>
                     </a>
-                    <a href="#" class="social-link">
-                        <i class="fas fa-globe"></i>
-                    </a>
                 </div>
             </div>
             
             <div class="footer-section">
                 <h3>አገልግሎት ሰጪ ክፍሎች</h3>
                 <p><i class="fas fa-user-tie"></i> የጽ/ቤት ኃላፊ</p>
-                <p><i class="fas fa-file-contract"></i> የግንባታ ፈቃድ አሰጣጥ ቡድን</p>
-                <p><i class="fas fa-hard-hat"></i> የግንባታ ክትትል እና ቁጥጥር ቡድን</p>
-                <p><i class="fas fa-lightbulb"></i> የህንጻ መጠቀሚያ እና ኢንስፔክሺን ቡድን</p>
-                <p><i class="fas fa-ad"></i> የውጭ ማስታወቂያ ፈቃድ እና ቁጥጥር ቡድን</p>
-                <p><i class="fas fa-archive"></i> መረጃ እና ዶክመንቴሺን ቡድን</p>
+                <p><i class="fas fa-file-contract"></i> የግንባታ ፈቃድ ቡድን</p>
+                <p><i class="fas fa-hard-hat"></i> የግንባታ ክትትል ቡድን</p>
+                <p><i class="fas fa-lightbulb"></i> የህንጻ መጠቀሚያ ቡድን</p>
+                <p><i class="fas fa-ad"></i> የውጭ ማስታወቂያ ቡድን</p>
+                <p><i class="fas fa-archive"></i> መረጃ ቡድን</p>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 25px; padding-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-            <p>© 2023 በኮልፌ ቀራኒዮ ክፍለ ከተማ የግንባታ ፈቃድ እና ቁጥጥር ጽ/ቤት. ሁሉም መብቶች የተጠበቁ ናቸው።</p>
-            <p style="font-size: 0.85rem; opacity: 0.8;">የደንበኛ አስተያየት ፣ ቅሬታ እና ጥያቄ ማቅረቢያ ድረ-ገጽ</p>
-            <p style="font-size: 0.85rem; opacity: 0.8;"> <i>እኛ ልናገለግልዎት ሁሌም አለን!!!</i></p>
-            <p style="font-size: 0.85rem; opacity: 0.8;"> <strong><i>በአቶ ዩሐንስ ሙሉዩ የበለፀገ</i></strong></p>
+        <div style="text-align: center; margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+            <p>© 2023 በኮልፌ ቀራኒዮ ክፍለ ከተማ የግንባታ ፈቃድ እና ቁጥጥር ጽ/ቤት.</p>
         </div>
     </footer>
 
     <script>
-        // JavaScript remains exactly the same as in the original file
-        // The script is 100% compatible with the font changes
         // ========== ኢኒሻላይዜሽን ==========
         const DEFAULT_ADMIN = {
             username: "yohannesmk",
@@ -2246,11 +1965,11 @@
         // የስራ ክፍል ስሞች
         const departmentNames = {
             'deputy-office': 'የጽ/ቤት ኃላፊ',
-            'construction-permit': 'የግንባታ ፈቃድ አሰጣጥ ቡድን',
-            'construction-control': 'የግንባታ ክትትል እና ቁጥጥር ቡድን',
-            'building-inspiration': 'የህንጻ መጠቀሚያ እና ኢኒስፔክሺን ቡድን',
-            'outdoor-advertisement': 'የውጭ ማስታወቂያ ፈቃድ እና ቁጥጥር ቡድን',
-            'documentation': 'መረጃ እና ዶክመንቴሺን ቡድን'
+            'construction-permit': 'የግንባታ ፈቃድ ቡድን',
+            'construction-control': 'የግንባታ ክትትል ቡድን',
+            'building-inspiration': 'የህንጻ መጠቀሚያ ፈቃድ ቡድን',
+            'outdoor-advertisement': 'የውጭ ማስታወቂያ ፈቃድ ቡድን',
+            'documentation': 'መረጃ እና ዶክመንቴሺን'
         };
 
         // ለማጥፋት መረጃ ማከማቻ
@@ -2262,7 +1981,6 @@
 
         // localStorage ኢኒሻላይዝ ማድረግ
         function initializeStorage() {
-            // አስተያየት ማከማቻ
             if (!localStorage.getItem('feedback')) {
                 localStorage.setItem('feedback', JSON.stringify({
                     'deputy-office': [],
@@ -2274,17 +1992,14 @@
                 }));
             }
             
-            // አስተዳዳሪ ማከማቻ
             if (!localStorage.getItem('admins')) {
                 localStorage.setItem('admins', JSON.stringify([DEFAULT_ADMIN]));
             }
             
-            // የስራ ክፍል ሎጎዎች
             if (!localStorage.getItem('departmentLogos')) {
                 localStorage.setItem('departmentLogos', JSON.stringify({}));
             }
             
-            // ማስተካከያዎች
             if (!localStorage.getItem('settings')) {
                 localStorage.setItem('settings', JSON.stringify({
                     language: 'am',
@@ -2301,7 +2016,6 @@
             isAdmin: false,
             currentAdmin: null,
             currentDepartment: '',
-            currentLanguage: 'am',
             files: [],
             departmentLogos: {},
             isRecording: false,
@@ -2345,6 +2059,7 @@
         const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
         const cancelDeleteBtn = document.getElementById('cancelDeleteBtn');
         const confirmationMessage = document.getElementById('confirmationMessage');
+        const mainHeader = document.getElementById('mainHeader');
 
         // የሎጎ ኢንፑቶች
         const logoInputs = {
@@ -2367,10 +2082,11 @@
         };
 
         // ========== ኢቬንት ሊስተነሮች ==========
+        // ማብራሪያ: ሁሉንም ኢቬንት ሊስተነሮች እዚህ ተጨምረዋል
+
         // ገጽ አሰሳ
         showAdminLoginBtn.addEventListener('click', () => {
             loginModal.style.display = 'flex';
-            document.getElementById('loginUsername').focus();
         });
 
         showCustomerViewBtn.addEventListener('click', () => {
@@ -2386,19 +2102,11 @@
         });
 
         manageAdminsBtn.addEventListener('click', () => {
-            if (adminManagementSection.style.display === 'none') {
-                showAdminManagement();
-            } else {
-                hideAdminManagement();
-            }
+            showAdminManagement();
         });
 
         manageLogosBtn.addEventListener('click', () => {
-            if (logoManagementSection.style.display === 'none') {
-                showLogoManagement();
-            } else {
-                hideLogoManagement();
-            }
+            showLogoManagement();
         });
 
         exportDataBtn.addEventListener('click', () => {
@@ -2500,7 +2208,7 @@
             });
         });
 
-        // የሎጎ ኢንፑቶች ለሁሉም የስራ ክፍሎች
+        // የሎጎ ኢንፑቶች
         Object.keys(logoInputs).forEach(dept => {
             if (logoInputs[dept]) {
                 logoInputs[dept].addEventListener('change', (e) => {
@@ -2516,7 +2224,19 @@
             resetPendingDeletion();
         });
 
+        // ስክሮል ኢቬንት ለሄደር
+        window.addEventListener('scroll', handleScroll);
+
         // ========== ፈንክሽንስ ==========
+        // ሄደር ስክሮል ማኔጅመንት
+        function handleScroll() {
+            if (window.scrollY > 50) {
+                mainHeader.classList.add('header-scrolled');
+            } else {
+                mainHeader.classList.remove('header-scrolled');
+            }
+        }
+
         // ገጽ አሰሳ
         function showCustomerPage() {
             customerPage.style.display = 'block';
@@ -2539,17 +2259,17 @@
 
         function updateAuthButtons() {
             if (currentState.isAdmin) {
-                showCustomerViewBtn.classList.remove('hidden');
-                showAdminLoginBtn.classList.add('hidden');
+                showCustomerViewBtn.style.display = 'flex';
+                showAdminLoginBtn.style.display = 'none';
             } else {
-                showCustomerViewBtn.classList.add('hidden');
-                showAdminLoginBtn.classList.remove('hidden');
+                showCustomerViewBtn.style.display = 'none';
+                showAdminLoginBtn.style.display = 'flex';
             }
         }
 
         function updateAdminRoleIndicator() {
             if (currentState.currentAdmin && currentState.currentAdmin.isFirstAdmin) {
-                adminRoleIndicator.textContent = " የመጀመሪያ አስተዳዳሪ";
+                adminRoleIndicator.textContent = "የመጀመሪያ አስተዳዳሪ";
                 adminRoleIndicator.style.background = "var(--accent-gold)";
                 adminRoleIndicator.style.color = "var(--primary-blue)";
             } else if (currentState.currentAdmin) {
@@ -2569,22 +2289,12 @@
             manageLogosBtn.innerHTML = '<i class="fas fa-image"></i> ሎጎዎችን አስተዳደር';
         }
 
-        function hideAdminManagement() {
-            adminManagementSection.style.display = 'none';
-            manageAdminsBtn.innerHTML = '<i class="fas fa-user-shield"></i> አስተዳዳሪዎችን አስተዳደር';
-        }
-
         function showLogoManagement() {
             adminManagementSection.style.display = 'none';
             logoManagementSection.style.display = 'block';
             manageAdminsBtn.innerHTML = '<i class="fas fa-user-shield"></i> አስተዳዳሪዎችን አስተዳደር';
             manageLogosBtn.innerHTML = '<i class="fas fa-times"></i> ሎጎዎችን ዝጋ';
             loadLogoPreviews();
-        }
-
-        function hideLogoManagement() {
-            logoManagementSection.style.display = 'none';
-            manageLogosBtn.innerHTML = '<i class="fas fa-image"></i> ሎጎዎችን አስተዳደር';
         }
 
         // የስራ ክፍል ሎጎዎች
@@ -2608,7 +2318,7 @@
                 if (logos[dept]) {
                     preview.innerHTML = `<img src="${logos[dept]}" alt="${departmentNames[dept]}">`;
                 } else {
-                    preview.innerHTML = `<i class="fas fa-image" style="font-size: 2.5rem; color: #718096;"></i>`;
+                    preview.innerHTML = `<i class="fas fa-image" style="font-size: 2rem; color: #718096;"></i>`;
                 }
             });
         }
@@ -2631,10 +2341,8 @@
             reader.onload = (event) => {
                 const logoData = event.target.result;
                 
-                // ፕሪቭዩ ማሻሻል
                 logoPreviews[dept].innerHTML = `<img src="${logoData}" alt="${departmentNames[dept]}">`;
                 
-                // በስቴት ውስጥ ማከማቸት
                 currentState.departmentLogos[dept] = logoData;
                 
                 showNotification(`${departmentNames[dept]} ሎጎ ተጫነ`, 'success');
@@ -2821,7 +2529,6 @@
                 email: document.getElementById('email').value.trim() || '',
                 woreda: woreda,
                 text: feedbackText,
-                additionalInfo: document.getElementById('additionalInfo').value.trim() || '',
                 rating: parseInt(selectedRating.value),
                 date: new Date().toISOString(),
                 status: 'አዲስ',
@@ -2856,11 +2563,10 @@
                 document.getElementById('loggedInAdmin').textContent = admin.username;
                 
                 loginModal.style.display = 'none';
-                loginForm.reset();
                 showAdminPage();
                 showNotification(`እንኳን ደህና መጡ ${admin.username}!`, 'success');
             } else {
-                showNotification('የተሳሳተ የተጠቃሚ ስም ወይም የይለፍ ቃል ስለሆነ እንደገና ይሙሉ', 'error');
+                showNotification('የተሳሳተ የተጠቃሚ ስም ወይም የይለፍ ቃል', 'error');
             }
         }
 
@@ -2868,7 +2574,7 @@
             currentState.currentAdmin = null;
             currentState.isAdmin = false;
             showCustomerPage();
-            showNotification('ተሳክቶሎዎታል!!!', 'info');
+            showNotification('ተሳክቶሎዎታል!', 'info');
         }
 
         function loadAdminDashboard() {
@@ -2908,7 +2614,7 @@
                     <div class="stat-value">${newFeedback}</div>
                 </div>
                 <div class="stat-card">
-                    <h3> አዲስ  በአስተዳዳሪዎች ያልታዩ </h3>
+                    <h3>አስተዳዳሪዎች</h3>
                     <div class="stat-value">${admins.length}</div>
                 </div>
             `;
@@ -2938,7 +2644,7 @@
             if (allFeedback.length === 0) {
                 feedbackList.innerHTML = `
                     <div style="padding: 30px; text-align: center; color: #718096;">
-                        <i class="fas fa-comment-slash" style="font-size: 2.5rem; margin-bottom: 15px;"></i>
+                        <i class="fas fa-comment-slash" style="font-size: 2rem; margin-bottom: 15px;"></i>
                         <p>ምንም አስተያየት የለም።</p>
                     </div>
                 `;
@@ -2951,7 +2657,7 @@
         function createFeedbackItem(feedback) {
             const date = new Date(feedback.date).toLocaleDateString('am-ET', {
                 year: 'numeric',
-                month: 'long',
+                month: 'short',
                 day: 'numeric',
                 hour: '2-digit',
                 minute: '2-digit'
@@ -2982,7 +2688,6 @@
                 `;
             }
             
-            // የመጀመሪያ አስተዳዳሪ ብቻ የሚያየው የማጥፊያ ቁልፍ
             let deleteButtonHtml = '';
             if (currentState.currentAdmin && currentState.currentAdmin.isFirstAdmin) {
                 deleteButtonHtml = `
@@ -2995,12 +2700,10 @@
             return `
                 <div class="feedback-item">
                     <div class="feedback-meta">
-                        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-                            <span class="feedback-department">${departmentNames[feedback.department]}</span>
-                            <span class="feedback-date">${date}</span>
-                            ${feedback.status === 'አዲስ' ? 
-                                '<span style="background: var(--success-green); color: white; padding: 4px 10px; border-radius: 12px; font-size: 0.75rem;">አዲስ</span>' : ''}
-                        </div>
+                        <span class="feedback-department">${departmentNames[feedback.department]}</span>
+                        <span class="feedback-date">${date}</span>
+                        ${feedback.status === 'አዲስ' ? 
+                            '<span style="background: var(--success-green); color: white; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">አዲስ</span>' : ''}
                         <div class="feedback-rating">
                             ${starsHtml}
                         </div>
@@ -3008,13 +2711,6 @@
                     
                     <div class="feedback-content">
                         <div class="feedback-text">${feedback.text}</div>
-                        
-                        ${feedback.additionalInfo ? `
-                            <div style="margin-top: 12px; padding: 12px; background: #f8fafc; border-radius: var(--radius-md);">
-                                <strong>ተጨማሪ አስተያየቶች:</strong>
-                                <p style="margin-top: 5px;">${feedback.additionalInfo}</p>
-                            </div>
-                        ` : ''}
                     </div>
                     
                     <div class="feedback-details">
@@ -3023,7 +2719,7 @@
                             <span class="detail-value">${feedback.fullName}</span>
                         </div>
                         <div class="detail-item">
-                            <span class="detail-label">ስልክ ቁጥር</span>
+                            <span class="detail-label">ስልክ</span>
                             <span class="detail-value">${feedback.phone}</span>
                         </div>
                         <div class="detail-item">
@@ -3038,9 +2734,8 @@
                     
                     ${attachmentsHtml}
                     
-                    <!-- የማጥፊያ ቁልፍ (የመጀመሪያ አስተዳዳሪ ብቻ) -->
                     ${deleteButtonHtml ? `
-                        <div style="margin-top: 15px; display: flex; justify-content: flex-end;">
+                        <div style="margin-top: 15px;">
                             ${deleteButtonHtml}
                         </div>
                     ` : ''}
@@ -3069,33 +2764,29 @@
         // የአስተያየት ማጥፊያ ስርዓት
         function showDeleteConfirmation(feedbackId, department) {
             if (!currentState.currentAdmin || !currentState.currentAdmin.isFirstAdmin) {
-                showNotification(' አይቻልም።', 'error');
+                showNotification('የመጀመሪያ አስተዳዳሪ ብቻ አስተያየት መሰረዝ ይችላል', 'error');
                 return;
             }
             
-            // አስተያየቱን ለማግኘት
             const feedbackData = JSON.parse(localStorage.getItem('feedback'));
             const departmentFeedback = feedbackData[department];
             const feedbackIndex = departmentFeedback.findIndex(item => item.id === feedbackId);
             
             if (feedbackIndex === -1) {
-                showNotification('አስተያየቱ አልተገኘም።', 'error');
+                showNotification('አስተያየቱ አልተገኘም', 'error');
                 return;
             }
             
             const feedback = departmentFeedback[feedbackIndex];
             
-            // ለማጥፊያ መረጃ ማከማቸት
             pendingDeletion = {
                 feedbackId: feedbackId,
                 department: department,
                 feedbackIndex: feedbackIndex
             };
             
-            // የማረጋገጫ መልእክት ማዘጋጀት
-            confirmationMessage.textContent = `"${feedback.text.substring(0, 100)}${feedback.text.length > 100 ? '...' : ''}" የሚለውን አስተያየት ለመሰረዝ እርግጠኛ ነዎት? ይህ ተግባር መቀለብ የለበትም።`;
+            confirmationMessage.textContent = `"${feedback.text.substring(0, 100)}${feedback.text.length > 100 ? '...' : ''}" የሚለውን አስተያየት ለመሰረዝ እርግጠኛ ነዎት?`;
             
-            // ማረጋገጫ ሞዳል ማሳየት
             confirmationModal.style.display = 'flex';
         }
 
@@ -3109,13 +2800,13 @@
 
         function confirmDeleteFeedback() {
             if (!pendingDeletion.feedbackId || !pendingDeletion.department) {
-                showNotification('ለመሰረዝ መረጃ አልተገኘም።', 'error');
+                showNotification('ለመሰረዝ መረጃ አልተገኘም', 'error');
                 confirmationModal.style.display = 'none';
                 return;
             }
             
             if (!currentState.currentAdmin || !currentState.currentAdmin.isFirstAdmin) {
-                showNotification('አይቻልም።', 'error');
+                showNotification('የመጀመሪያ አስተዳዳሪ ብቻ አስተያየት መሰረዝ ይችላል', 'error');
                 confirmationModal.style.display = 'none';
                 resetPendingDeletion();
                 return;
@@ -3126,25 +2817,21 @@
             const feedbackData = JSON.parse(localStorage.getItem('feedback'));
             const departmentFeedback = feedbackData[department];
             
-            // አስተያየቱን ማጥፋት
             if (feedbackIndex !== -1 && departmentFeedback[feedbackIndex].id === feedbackId) {
                 departmentFeedback.splice(feedbackIndex, 1);
                 localStorage.setItem('feedback', JSON.stringify(feedbackData));
                 
                 showNotification('አስተያየቱ በተሳካ ሁኔታ ተሰርዟል!', 'success');
                 
-                // የአሁኑን ማጣሪያ አድስ
                 const activeFilterBtn = document.querySelector('.filter-btn.active');
                 const currentFilter = activeFilterBtn ? activeFilterBtn.dataset.department : 'all';
                 loadAllFeedback(currentFilter);
                 
-                // ስታቲስቲክስ አድስ
                 loadAdminDashboard();
             } else {
-                showNotification('አስተያየቱ አልተገኘም።', 'error');
+                showNotification('አስተያየቱ አልተገኘም', 'error');
             }
             
-            // ሞዳል ዝጋ እና መረጃ አጽዳ
             confirmationModal.style.display = 'none';
             resetPendingDeletion();
         }
@@ -3154,28 +2841,25 @@
             const adminList = document.getElementById('adminList');
             
             adminList.innerHTML = `
-                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;">
                     ${admins.map(admin => `
                         <div style="background: white; padding: 15px; border-radius: var(--radius-md); border: 2px solid #e2e8f0;">
-                            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                                <div style="width: 36px; height: 36px; background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                                <div style="width: 35px; height: 35px; background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">
                                     ${admin.username.charAt(0).toUpperCase()}
                                 </div>
                                 <div>
                                     <strong>${admin.username}</strong>
                                     ${admin.isFirstAdmin ? 
-                                        '<span style="background: var(--accent-gold); color: var(--primary-blue); padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; margin-left: 8px;">የመጀመሪያ አስተዳዳሪ</span>' : 
-                                        '<span style="background: var(--secondary-blue); color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; margin-left: 8px;">አስተዳዳሪ</span>'}
+                                        '<span style="background: var(--accent-gold); color: var(--primary-blue); padding: 2px 6px; border-radius: 10px; font-size: 0.7rem; margin-left: 8px;">የመጀመሪያ</span>' : 
+                                        '<span style="background: var(--secondary-blue); color: white; padding: 2px 6px; border-radius: 10px; font-size: 0.7rem; margin-left: 8px;">አስተዳዳሪ</span>'}
                                 </div>
                             </div>
                             <div style="color: #718096; font-size: 0.85rem;">
                                 ${admin.fullName || 'ሙሉ ስም አላስገቡም'}
                             </div>
-                            <div style="color: #718096; font-size: 0.75rem; margin-top: 5px;">
-                                ${admin.isFirstAdmin ? '✓ አስተያየቶችን መሰረዝ ይችላል' : '✗ አስተያየቶችን መሰረዝ አይችልም'}
-                            </div>
                             ${!admin.isFirstAdmin && currentState.currentAdmin && currentState.currentAdmin.isFirstAdmin ? `
-                                <button onclick="removeAdmin('${admin.username}')" style="margin-top: 12px; padding: 6px 12px; background: var(--danger-red); color: white; border: none; border-radius: var(--radius-md); cursor: pointer; font-size: 0.85rem;">
+                                <button onclick="removeAdmin('${admin.username}')" style="margin-top: 10px; padding: 6px 12px; background: var(--danger-red); color: white; border: none; border-radius: var(--radius-md); cursor: pointer; font-size: 0.8rem; width: 100%;">
                                     አስተዳዳሪውን አስወግድ
                                 </button>
                             ` : ''}
@@ -3266,13 +2950,20 @@
                 return;
             }
             
+            const admins = JSON.parse(localStorage.getItem('admins'));
+            const adminToRemove = admins.find(a => a.username === username);
+            
+            if (adminToRemove && adminToRemove.isFirstAdmin) {
+                showNotification('የመጀመሪያ አስተዳዳሪ ሊሰረዝ አይችልም!', 'error');
+                return;
+            }
+            
             if (username === currentState.currentAdmin.username) {
                 showNotification('ራስዎን መሰረዝ አይችሉም', 'error');
                 return;
             }
             
             if (confirm(`አስተዳዳሪ ${username} ን ለመሰረዝ እርግጠኛ ነዎት?`)) {
-                const admins = JSON.parse(localStorage.getItem('admins'));
                 const filteredAdmins = admins.filter(a => a.username !== username);
                 localStorage.setItem('admins', JSON.stringify(filteredAdmins));
                 loadAdminList();
@@ -3312,7 +3003,7 @@
             document.body.appendChild(notification);
             
             setTimeout(() => {
-                notification.style.animation = 'slideOutRight 0.3s ease';
+                notification.style.animation = 'slideInRight 0.3s ease reverse';
                 setTimeout(() => notification.remove(), 300);
             }, 3000);
         }
